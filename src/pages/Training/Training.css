@@ -1,0 +1,283 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+}
+
+.training-page-container {
+  padding: 50px 10%;
+  text-align: center;
+}
+
+.hero {
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  color: white;
+  padding: 120px 20px;
+  border-radius: 10px;
+  margin-bottom: 50px;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: 10px;
+  z-index: 0;
+}
+
+.hero-text {
+  position: relative;
+  z-index: 1;
+  max-width: 80%;
+  animation: fadeIn 1.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.hero-text h1 {
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+  text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.8);
+  letter-spacing: 1px;
+}
+
+.hero-text p {
+  font-size: 1.25rem;
+  line-height: 1.6;
+  margin-bottom: 0;
+  text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.8);
+}
+
+.overview {
+  margin-bottom: 50px;
+}
+
+.overview h2 {
+  font-size: 2.5rem;
+  color: #2196f3;
+  margin-bottom: 20px;
+}
+
+.overview p {
+  font-size: 1.1rem;
+  color: #555;
+  line-height: 1.6;
+}
+
+.training-programs {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 40px;
+}
+
+.training-program {
+  background-color: #f7f7f7;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.training-program:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.program-image {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+}
+
+.program-content {
+  padding: 20px;
+}
+
+.program-content h3 {
+  font-size: 1.8rem;
+  color: #2196f3;
+  margin-bottom: 15px;
+}
+
+.program-content p {
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #555;
+}
+
+.stats-section {
+  margin-top: 50px;
+  background-color: #f0f7ff;
+  padding: 50px 0;
+}
+
+.stats-section h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 30px;
+  color: #2196f3;
+}
+
+.stats {
+  display: flex;
+  justify-content: space-around;
+}
+
+.stat-card {
+  background-color: white;
+  padding: 30px;
+  border-radius: 10px;
+  border: 2px solid #2196f3;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.stat-card h3 {
+  font-size: 2.5rem;
+  color: #2196f3;
+  margin-bottom: 15px;
+}
+
+.stat-card p {
+  font-size: 1.25rem;
+  color: #555;
+}
+
+.testimonials-section {
+  margin-top: 50px;
+}
+
+.testimonials-section h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 30px;
+  color: #2196f3;
+}
+
+.testimonial {
+  background-color: #f0f7ff;
+  padding: 30px;
+  margin-bottom: 20px;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.testimonial p {
+  font-size: 1rem;
+  color: #555;
+  margin-bottom: 10px;
+}
+
+.testimonial p:first-child {
+  font-weight: 600;
+}
+
+.rewards-section {
+  padding: 2rem 1rem;
+  background-color: #f4f9ff;
+  text-align: center;
+}
+
+.rewards-header {
+  margin-bottom: 2rem;
+}
+
+.rewards-header h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 30px;
+  color: #2196f3;
+}
+
+.rewards-header p {
+  color: #666;
+  font-size: 1rem;
+}
+
+.rewards-gallery {
+  display: flex;
+  gap: 5rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.reward-card {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.05);
+  overflow: hidden;
+  width: 100%;
+  max-width: 400px;
+  transition: transform 0.3s;
+}
+
+.reward-card:hover {
+  transform: translateY(-5px);
+}
+
+.reward-card img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.reward-card p {
+  padding: 1rem;
+  font-weight: 500;
+  color: #333;
+}
+
+@media (max-width: 768px) {
+  .training-page-container {
+    padding: 30px 5%;
+  }
+
+  .training-program {
+    padding: 15px;
+  }
+
+  .stats {
+    flex-direction: column;
+  }
+
+  .stat-card {
+    margin-bottom: 20px;
+  }
+
+  .hero {
+    padding: 80px 15px;
+    height: 60vh;
+  }
+
+  .hero-text {
+    max-width: 90%;
+  }
+
+  .hero-text h1 {
+    font-size: 2rem;
+    margin-bottom: 15px;
+  }
+
+  .hero-text p {
+    font-size: 1.1rem;
+  }
+}

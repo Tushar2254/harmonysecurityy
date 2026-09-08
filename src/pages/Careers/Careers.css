@@ -1,0 +1,251 @@
+/* ── Careers Section ── */
+.careers-section {
+  padding: 90px 24px 100px;
+  position: relative;
+}
+
+.careers-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 380px 1fr;
+  gap: 48px;
+  align-items: start;
+}
+
+/* ── Left Info ── */
+.careers-info {
+  position: sticky;
+  top: 90px;
+}
+
+.careers-tag {
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: #d4af37;
+  margin-bottom: 8px;
+}
+
+.careers-info h2 {
+  font-family: 'Jost', sans-serif;
+  font-size: clamp(1.8rem, 3vw, 2.4rem);
+  font-weight: 800;
+  color: #ffffff;
+  line-height: 1.2;
+  margin-bottom: 14px;
+  letter-spacing: -0.4px;
+}
+
+.careers-sub {
+  font-size: 0.88rem;
+  color: rgba(255,255,255,0.50);
+  line-height: 1.8;
+  margin-bottom: 32px;
+}
+
+/* Perks */
+.careers-perks {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.careers-perk {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 14px;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.07);
+  border-radius: 10px;
+  transition: background 0.2s;
+}
+
+.careers-perk:hover { background: rgba(212,175,55,0.08); border-color: rgba(212,175,55,0.18); }
+
+.careers-perk .fa {
+  font-size: 1rem;
+  color: #d4af37;
+  width: 20px;
+  flex-shrink: 0;
+}
+
+.careers-perk span {
+  font-size: 0.85rem;
+  color: rgba(255,255,255,0.75);
+  font-weight: 500;
+}
+
+/* ── Right Form Card ── */
+.careers-form-card {
+  background: rgba(255,255,255,0.07);
+  backdrop-filter: blur(14px);
+  border: 1px solid rgba(255,255,255,0.10);
+  border-radius: 24px;
+  padding: 40px 36px;
+  box-shadow: 0 8px 40px rgba(0,0,0,0.25);
+}
+
+.careers-form-card h3 {
+  font-family: 'Jost', sans-serif;
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: #ffffff;
+  margin-bottom: 28px;
+  letter-spacing: -0.3px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid rgba(255,255,255,0.10);
+}
+
+.cf-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.cf-group { margin-bottom: 18px; }
+
+.cf-group label {
+  display: block;
+  font-size: 0.70rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: rgba(255,255,255,0.45);
+  margin-bottom: 7px;
+}
+
+.cf-group label span { color: #d4af37; }
+
+.cf-group input,
+.cf-group select,
+.cf-group textarea {
+  width: 100%;
+  padding: 11px 14px;
+  background: rgba(255,255,255,0.06);
+  border: 1.5px solid rgba(255,255,255,0.10);
+  border-radius: 10px;
+  color: #ffffff;
+  font-family: 'Roboto', sans-serif;
+  font-size: 0.88rem;
+  outline: none;
+  transition: border-color 0.22s, background 0.22s;
+}
+
+.cf-group input::placeholder,
+.cf-group textarea::placeholder { color: rgba(255,255,255,0.25); }
+
+.cf-group select option { background: #0d1b3e; color: #fff; }
+
+.cf-group input:focus,
+.cf-group select:focus,
+.cf-group textarea:focus {
+  border-color: #d4af37;
+  background: rgba(255,255,255,0.10);
+  box-shadow: 0 0 0 3px rgba(212,175,55,0.12);
+}
+
+.cf-group textarea { resize: vertical; min-height: 100px; }
+
+/* Radio row */
+.cf-radio-row {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+  margin-top: 4px;
+}
+
+.cf-radio {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+  font-size: 0.88rem;
+  color: rgba(255,255,255,0.75);
+  font-weight: 500;
+}
+
+.cf-radio input[type="radio"] {
+  width: auto;
+  accent-color: #d4af37;
+  cursor: pointer;
+}
+
+/* Submit */
+.cf-submit {
+  width: 100%;
+  padding: 14px 20px;
+  border-radius: 50px;
+  border: none;
+  background: linear-gradient(135deg, #b8960c, #d4af37);
+  color: #0d1b3e;
+  font-family: 'Jost', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 800;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  transition: transform 0.25s, box-shadow 0.25s;
+  box-shadow: 0 4px 18px rgba(212,175,55,0.30);
+  margin-bottom: 14px;
+  letter-spacing: 0.02em;
+}
+
+.cf-submit:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 28px rgba(212,175,55,0.45);
+}
+
+.cf-note {
+  font-size: 0.74rem;
+  color: rgba(255,255,255,0.30);
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+
+.cf-note .fa { color: #d4af37; }
+
+/* Success */
+.careers-success {
+  text-align: center;
+  padding: 60px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+}
+
+.careers-success .fa {
+  font-size: 3.5rem;
+  color: #d4af37;
+}
+
+.careers-success h3 {
+  font-family: 'Jost', sans-serif;
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: #ffffff;
+}
+
+.careers-success p {
+  font-size: 0.88rem;
+  color: rgba(255,255,255,0.55);
+}
+
+/* Responsive */
+@media (max-width: 960px) {
+  .careers-inner { grid-template-columns: 1fr; }
+  .careers-info   { position: static; }
+  .cf-row         { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 480px) {
+  .careers-form-card { padding: 26px 18px; }
+}

@@ -1,0 +1,561 @@
+/* ── WHY CHOOSE US ── */
+.why-section {
+  padding: 100px 0;
+  background: #f7f9fc;
+}
+
+.why-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+.why-header {
+  text-align: center;
+  margin-bottom: 70px;
+}
+
+.why-tag {
+  display: inline-block;
+  color: #0072ff;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+
+.why-header h2 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: #0d1b3e;
+  margin-bottom: 14px;
+}
+
+.why-header p {
+  font-size: 1.1rem;
+  color: #666;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.why-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+}
+
+.why-card {
+  background: #fff;
+  border-radius: 16px;
+  padding: 32px 28px;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.06);
+  transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
+  border: 2px solid transparent;
+  position: relative;
+  overflow: hidden;
+}
+
+.why-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #00c6ff, #0072ff);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.4s ease;
+}
+
+.why-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 50px rgba(0,114,255,0.14);
+  border-color: rgba(0,198,255,0.2);
+}
+
+.why-card:hover::before {
+  transform: scaleX(1);
+}
+
+.why-card-icon {
+  width: 56px;
+  height: 56px;
+  background: linear-gradient(135deg, rgba(0,198,255,0.12), rgba(0,114,255,0.12));
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 18px;
+  transition: background 0.3s ease;
+}
+
+.why-card:hover .why-card-icon {
+  background: linear-gradient(135deg, #00c6ff, #0072ff);
+}
+
+.why-card-icon i {
+  font-size: 1.4rem;
+  color: #0072ff;
+  transition: color 0.3s ease;
+}
+
+.why-card:hover .why-card-icon i {
+  color: #fff;
+}
+
+.why-card h3 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #0d1b3e;
+  margin-bottom: 8px;
+  line-height: 1.4;
+}
+
+.why-card p {
+  font-size: 0.9rem;
+  color: #666;
+  line-height: 1.65;
+  margin: 0;
+}
+
+/* ── POTENTIAL ── */
+.potential-section {
+  padding: 100px 0;
+  background: #fff;
+}
+
+.potential-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+.potential-header {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.potential-header h2 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 2.3rem;
+  font-weight: 800;
+  color: #0d1b3e;
+}
+
+.potential-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+}
+
+.potential-card {
+  background: #f7f9fc;
+  border-left: 4px solid #0072ff;
+  border-radius: 0 12px 12px 0;
+  padding: 24px 28px;
+  transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.potential-card:hover {
+  background: #eef4ff;
+  transform: translateX(6px);
+}
+
+.potential-card h3 {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #0072ff;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 10px;
+}
+
+.potential-card p {
+  font-size: 0.93rem;
+  color: #555;
+  line-height: 1.7;
+  margin: 0;
+}
+
+/* ── OPERATIONS ── */
+.operations-section {
+  padding: 100px 0;
+  background: linear-gradient(135deg, #0d1b3e 0%, #0a2a6e 100%);
+}
+
+.operations-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+.operations-header {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.operations-header h2 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 2.3rem;
+  font-weight: 800;
+  color: #fff;
+  margin-bottom: 12px;
+}
+
+.operations-header p {
+  color: rgba(255,255,255,0.65);
+  font-size: 1.05rem;
+}
+
+.operations-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+}
+
+.op-card {
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 16px;
+  padding: 36px 28px;
+  text-align: center;
+  transition: background 0.3s ease, transform 0.3s ease;
+  backdrop-filter: blur(6px);
+}
+
+.op-card:hover {
+  background: rgba(0,198,255,0.1);
+  transform: translateY(-8px);
+}
+
+.op-card-icon {
+  width: 80px;
+  height: 80px;
+  margin: 0 auto 20px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 2px solid rgba(0,198,255,0.3);
+}
+
+.op-card-icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.op-card h3 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 16px;
+}
+
+.op-card ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.op-card ul li {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 0.88rem;
+  color: rgba(255,255,255,0.75);
+  line-height: 1.5;
+}
+
+.op-card ul li i {
+  color: #00c6ff;
+  font-size: 0.85rem;
+  margin-top: 3px;
+  flex-shrink: 0;
+}
+
+/* ── CLIENTS ── */
+.clients-section {
+  padding: 80px 0;
+  background: #f7f9fc;
+}
+
+.clients-header {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.clients-header h2 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: #0d1b3e;
+}
+
+.client-carousel-container {
+  position: relative;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 60px;
+}
+
+.client-images {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+.client-image {
+  width: 160px;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #fff;
+  border-radius: 12px;
+  padding: 16px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.07);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.client-image:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 28px rgba(0,114,255,0.12);
+}
+
+.client-image img {
+  max-width: 100%;
+  max-height: 60px;
+  object-fit: contain;
+}
+
+.carousel-controls {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-between;
+  transform: translateY(-50%);
+  pointer-events: none;
+}
+
+.prev-btn, .next-btn {
+  pointer-events: all;
+  background: linear-gradient(135deg, #00c6ff, #0072ff);
+  color: #fff;
+  border: none;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 16px rgba(0,114,255,0.3);
+}
+
+.prev-btn:hover, .next-btn:hover {
+  transform: scale(1.1);
+  box-shadow: 0 8px 24px rgba(0,114,255,0.5);
+}
+
+/* ── VISION ── */
+.vision-section {
+  background-image: url('/Gallery/vision.jpg');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  position: relative;
+  padding: 120px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.vision-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(5,15,40,0.78);
+}
+
+.vision-content {
+  position: relative;
+  z-index: 1;
+  max-width: 800px;
+  text-align: center;
+  animation: slideInVision 1s ease forwards;
+}
+
+@keyframes slideInVision {
+  from { opacity: 0; transform: translateY(40px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.vision-content h2 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: #fff;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.vision-content h2 span {
+  background: linear-gradient(90deg, #00c6ff, #0072ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.vision-content p {
+  font-size: 1.15rem;
+  color: rgba(255,255,255,0.82);
+  line-height: 1.8;
+  margin-bottom: 14px;
+  font-style: italic;
+}
+
+/* ── TEAM ── */
+.team-section {
+  padding: 100px 0;
+  background: #fff;
+}
+
+.team-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+.team-header {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.team-header h2 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 2.3rem;
+  font-weight: 800;
+  color: #0d1b3e;
+}
+
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 28px;
+}
+
+.team-card {
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+  background: #fff;
+}
+
+.team-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 50px rgba(0,114,255,0.14);
+}
+
+.team-card-img {
+  position: relative;
+  height: 280px;
+  overflow: hidden;
+}
+
+.team-card-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.team-card:hover .team-card-img img {
+  transform: scale(1.06);
+}
+
+.team-card-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(5,15,40,0.85) 0%, transparent 60%);
+  opacity: 0;
+  transition: opacity 0.35s ease;
+  display: flex;
+  align-items: flex-end;
+  padding: 20px;
+}
+
+.team-card:hover .team-card-overlay {
+  opacity: 1;
+}
+
+.team-card-overlay p {
+  color: rgba(255,255,255,0.9);
+  font-size: 0.85rem;
+  line-height: 1.5;
+  margin: 0;
+}
+
+.team-card-info {
+  padding: 18px 20px;
+  border-top: 3px solid;
+  border-image: linear-gradient(90deg, #00c6ff, #0072ff) 1;
+}
+
+.team-card-info h3 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #0d1b3e;
+  margin-bottom: 4px;
+}
+
+.team-card-info span {
+  font-size: 0.85rem;
+  color: #0072ff;
+  font-weight: 600;
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 992px) {
+  .why-grid { grid-template-columns: repeat(2, 1fr); }
+  .potential-grid { grid-template-columns: 1fr; }
+  .operations-grid { grid-template-columns: 1fr; }
+  .team-grid { grid-template-columns: repeat(2, 1fr); }
+
+  .why-inner, .potential-inner, .operations-inner, .team-inner {
+    padding: 0 24px;
+  }
+}
+
+@media (max-width: 600px) {
+  .why-section, .potential-section, .operations-section, .team-section {
+    padding: 60px 0;
+  }
+
+  .why-grid { grid-template-columns: 1fr; }
+  .team-grid { grid-template-columns: 1fr; }
+
+  .why-header h2,
+  .potential-header h2,
+  .operations-header h2,
+  .team-header h2 {
+    font-size: 1.8rem;
+  }
+
+  .vision-content h2 { font-size: 1.8rem; }
+  .vision-content p { font-size: 1rem; }
+
+  .client-carousel-container { padding: 0 20px; }
+}

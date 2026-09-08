@@ -1,0 +1,71 @@
+/* Global styles */
+[data-aos="fade-up-new"] {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 1s ease-in-out, transform 1s ease-in-out;
+}
+
+[data-aos="fade-up-new"].aos-animate {
+  opacity: 1;
+  transform: translateY(0px);
+}
+
+[data-aos="fade-down-new"] {
+  opacity: 0;
+  transform: translateY(-40px);
+  transition: opacity 1s ease-in-out, transform 1s ease-in-out;
+}
+
+[data-aos="fade-down-new"].aos-animate {
+  opacity: 1;
+  transform: translateY(0px);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  /* background-image: url('/bg4.png');
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat; */
+}
+
+/* Make all white-background sections transparent so bg.jpg shows through */
+[class*="container"],
+[class*="section"]:not(.why-choose-section),
+[class*="wrapper"],
+[class*="card"]:not([class*="why-card"]),
+[class*="strip"],
+[class*="panel"],
+[class*="box"],
+.contact,
+.company-info-contact,
+.containerContact,
+.containerFAQ,
+.accordion__wrapper,
+.about-strip,
+.services-strip,
+.hs-contact-section,
+.hs-faq-section,
+.hs-form-card {
+  background: transparent !important;
+}
+
+/* Lighten card-like elements slightly so text stays readable */
+.accordion,
+.hs-faq-item,
+.security-card,
+.service-card,
+.team-card,
+.gallery-card {
+  background: rgba(255, 255, 255, 0.75) !important;
+  backdrop-filter: blur(6px);
+}
