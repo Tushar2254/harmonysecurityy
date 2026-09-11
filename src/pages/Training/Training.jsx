@@ -210,7 +210,7 @@ function Training() {
             <span className="training-orbit training-orbit-one" />
             <span className="training-orbit training-orbit-two" />
             <span className="training-logo-runner">
-              <img src="/HGS_Harmony_Group_Services_Logo_Transparent_High_Resolution.png" alt="" />
+              <img src="/hgs-logo-optimized.png" alt="" />
             </span>
             <span className="training-visual-badge training-badge-cap"><i className="fas fa-graduation-cap" /></span>
           </div>

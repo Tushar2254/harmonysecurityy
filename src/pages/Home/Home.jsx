@@ -65,6 +65,9 @@ const clientLogos = [
   { name: 'Sprint Co-Works', image: '/sprint.png' },
   { name: 'Vi', image: '/VI.webp' },
   { name: 'EFC', image: '/clients.png' },
+  { name: 'Honda', image: '/Honda.svg' },
+  { name: 'Jaquar', image: '/jaquar.png' },
+  { name: 'Land Rover', image: '/landrover.jpg' },
 ]
 
 function Home() {
@@ -175,7 +178,7 @@ function Home() {
       <section className="h2-intro">
         <div className="h2-section-label" data-h2-reveal>Built for complete confidence</div>
         <div className="h2-intro-grid">
-          <h2 data-h2-reveal>Security is not a <span className="h2-uniform-word">uniform.</span><br /><span>It's a </span><strong className="h2-trust-word" aria-label="Trust."><span className="h2-trust-sizer" aria-hidden="true">Trust..</span><span className="h2-trust-flipper" aria-hidden="true"><span className="h2-trust-face h2-trust-face-front">Trust.</span><span className="h2-trust-face h2-trust-face-back">Trust.</span></span><span className="h2-trust-gloss" aria-hidden="true" /></strong></h2>
+          <h2 data-h2-reveal>Security is not a <span className="h2-uniform-word">uniform.</span><br /><span>It&apos;s a </span><strong className="h2-trust-word" aria-label="Trust."><span className="h2-trust-sizer" aria-hidden="true">Trust.</span><span className="h2-trust-flipper" aria-hidden="true"><span className="h2-trust-face h2-trust-face-front">Trust.</span><span className="h2-trust-face h2-trust-face-back">Trust.</span></span><span className="h2-trust-gloss" aria-hidden="true" /></strong></h2>
           <div data-h2-reveal>
             <p>Harmony Security Services provides reliable security and housekeeping solutions across Pune for commercial premises, malls, bungalows, housing societies and cooperative residential communities.</p>
             <p>Our relationship-led approach combines carefully selected personnel, continuous training, digital reporting and round-the-clock operational support.</p>
@@ -185,12 +188,23 @@ function Home() {
       </section>
 
       <section className="h2-clients">
+        <div className="h2-client-backdrop" aria-hidden="true">
+          <svg className="h2-client-line-art" viewBox="0 0 1600 620" preserveAspectRatio="none">
+            <path d="M-80 455 C170 330 230 570 470 420 S830 255 1040 395 1340 565 1680 335" />
+            <path d="M-40 180 C220 335 365 70 610 225 S960 405 1190 205 1450 60 1650 165" />
+            <path d="M800 -70 V690" />
+            <circle cx="470" cy="420" r="9" />
+            <circle cx="1040" cy="395" r="9" />
+            <circle cx="1190" cy="205" r="7" />
+          </svg>
+          <span /><span /><span /><span />
+        </div>
         <div className="h2-clients-heading" data-h2-reveal>
-          <img className="h2-clients-logo" src="/HGS_Harmony_Group_Services_Logo_Transparent_High_Resolution.png" alt="Harmony Group Security Services" />
+          <img className="h2-clients-logo" src="/hgs-logo-optimized.png" alt="Harmony Group Security Services" />
           <p className="h2-kicker">Trusted partnerships</p>
           <h2>Protected by Harmony.</h2>
         </div>
-        <div className="h2-client-track"><div>{[...clientLogos, ...clientLogos].map((client, index) => <span key={`${client.name}-${index}`} aria-hidden={index >= clientLogos.length}><img src={client.image} alt={index < clientLogos.length ? `${client.name} logo` : ''} loading="lazy" /></span>)}</div></div>
+        <div className="h2-client-track"><div>{[...clientLogos, ...clientLogos].map((client, index) => <span key={`${client.name}-${index}`} aria-hidden={index >= clientLogos.length} style={{ '--client-index': index }}><img src={client.image} alt={index < clientLogos.length ? `${client.name} logo` : ''} loading="lazy" /></span>)}</div></div>
       </section>
 
       <section className="h2-sectors-stage">
@@ -236,7 +250,7 @@ function Home() {
         <div className="h2-brand-logo-shell" data-h2-reveal>
           <span className="h2-brand-ring h2-brand-ring-outer" aria-hidden="true" />
           <span className="h2-brand-ring h2-brand-ring-inner" aria-hidden="true" />
-          <img src="/HGS_Harmony_Group_Services_Logo_Transparent_High_Resolution.png" alt="HGS Harmony Group Security Services" loading="lazy" />
+          <img src="/hgs-logo-optimized.png" alt="HGS Harmony Group Security Services" loading="lazy" />
           <span className="h2-brand-logo-gloss" aria-hidden="true" />
         </div>
         {/* <p className="h2-brand-name" data-h2-reveal>Harmony Group Security Services</p> */}

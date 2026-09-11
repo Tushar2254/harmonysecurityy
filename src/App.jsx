@@ -13,6 +13,7 @@ import Gallery from './pages/Gallery/Gallery'
 import Training from './pages/Training/Training'
 import Careers from './pages/Careers/Careers'
 import './App.css'
+import './LightTheme.css'
 
 function ScrollToTop() {
   const { pathname } = useLocation()

@@ -51,6 +51,9 @@ const clients = [
   { name: 'Sprint Co-Works', imgSrc: '/sprint.png' },
   { name: 'Vi', imgSrc: '/VI.webp' },
   { name: 'EFC', imgSrc: '/clients.png' },
+  { name: 'Honda', imgSrc: '/Honda.svg' },
+  { name: 'Jaquar', imgSrc: '/jaquar.png' },
+  { name: 'Land Rover', imgSrc: '/landrover.jpg' },
 ]
 
 function AboutUs() {

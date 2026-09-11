@@ -64,10 +64,10 @@ function Navbar() {
           <Link to="/" className="nav-logo">
             <span className="nav-logo-mark">
               <span className="nav-logo-flipper">
-                <img className="nav-logo-depth nav-logo-depth-one" src="/HGS_Harmony_Group_Services_Logo_Transparent_High_Resolution.png" alt="" />
-                <img className="nav-logo-depth nav-logo-depth-two" src="/HGS_Harmony_Group_Services_Logo_Transparent_High_Resolution.png" alt="" />
-                <img className="nav-logo-face nav-logo-face-front" src="/HGS_Harmony_Group_Services_Logo_Transparent_High_Resolution.png" alt="Harmony Group Security Services logo" />
-                <img className="nav-logo-face nav-logo-face-back" src="/HGS_Harmony_Group_Services_Logo_Transparent_High_Resolution.png" alt="" />
+                <img className="nav-logo-depth nav-logo-depth-one" src="/hgs-logo-optimized.png" alt="" />
+                <img className="nav-logo-depth nav-logo-depth-two" src="/hgs-logo-optimized.png" alt="" />
+                <img className="nav-logo-face nav-logo-face-front" src="/hgs-logo-optimized.png" alt="Harmony Group Security Services logo" />
+                <img className="nav-logo-face nav-logo-face-back" src="/hgs-logo-optimized.png" alt="" />
               </span>
               <span className="nav-logo-gloss" aria-hidden="true" />
             </span>

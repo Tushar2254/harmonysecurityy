@@ -71,10 +71,10 @@ function Careers() {
               <div className="careers-3d-panel careers-3d-panel-mid"><i className="fas fa-graduation-cap" /></div>
               <div className="careers-3d-panel careers-3d-panel-front">
                 <div className="careers-logo-flipper">
-                  <img className="careers-logo-depth careers-logo-depth-one" src="/HGS_Harmony_Group_Services_Logo_Transparent_High_Resolution.png" alt="" />
-                  <img className="careers-logo-depth careers-logo-depth-two" src="/HGS_Harmony_Group_Services_Logo_Transparent_High_Resolution.png" alt="" />
-                  <img className="careers-logo-face careers-logo-face-front" src="/HGS_Harmony_Group_Services_Logo_Transparent_High_Resolution.png" alt="" />
-                  <img className="careers-logo-face careers-logo-face-back" src="/HGS_Harmony_Group_Services_Logo_Transparent_High_Resolution.png" alt="" />
+                  <img className="careers-logo-depth careers-logo-depth-one" src="/hgs-logo-optimized.png" alt="" />
+                  <img className="careers-logo-depth careers-logo-depth-two" src="/hgs-logo-optimized.png" alt="" />
+                  <img className="careers-logo-face careers-logo-face-front" src="/hgs-logo-optimized.png" alt="" />
+                  <img className="careers-logo-face careers-logo-face-back" src="/hgs-logo-optimized.png" alt="" />
                 </div>
               </div>
             </div>
@@ -99,7 +99,7 @@ function Careers() {
                 { icon: 'fa-graduation-cap',  text: 'In-house training & skill development' },
                 { icon: 'fa-line-chart',      text: 'Growth opportunities at every level' },
                 { icon: 'fa-users',           text: 'Welcoming environment for ex-servicemen' },
-                { icon: 'fa-clock-o',         text: 'Flexible shifts & regular pay' },
+                { icon: 'fa-clock',           text: 'Flexible shifts & regular pay' },
               ].map((p, i) => (
                 <div key={i} className="careers-perk">
                   <i className={`fa ${p.icon}`} />

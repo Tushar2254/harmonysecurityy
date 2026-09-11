@@ -33,7 +33,7 @@ function Footer() {
             <span className="footer-security-ring footer-security-ring-outer" />
             <span className="footer-security-ring footer-security-ring-inner" />
             <div className="footer-security-shield">
-              <img src="/HGS_Harmony_Group_Services_Logo_Transparent_High_Resolution.png" alt="" />
+              <img src="/hgs-logo-optimized.png" alt="" />
               <span className="footer-shield-scan" />
             </div>
           </div>
@@ -54,7 +54,7 @@ function Footer() {
           {/* Brand */}
           <div className="footer-brand-col">
             <Link to="/" className="footer-logo-wrap">
-              <img src="/HGS_Harmony_Group_Services_Logo_Transparent_High_Resolution.png" alt="Harmony Group Security Services logo" />
+              <img src="/hgs-logo-optimized.png" alt="Harmony Group Security Services logo" />
               <span className="footer-brand-name">
                 Harmony <span>Group</span>
                 <span className="footer-brand-sub">Security Services</span>

@@ -21,7 +21,7 @@ function Preloader() {
       <div className="preloader-inner">
         <div className="preloader-ring">
           <div className="ring-circle"></div>
-          <img src="/HGS_Harmony_Group_Services_Logo_Transparent_High_Resolution.png" alt="Harmony Logo" className="preloader-logo" />
+          <img src="/hgs-logo-optimized.png" alt="Harmony Logo" className="preloader-logo" />
         </div>
         <div className="preloader-bar">
           <div className="preloader-progress"></div>
