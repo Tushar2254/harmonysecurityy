@@ -1,5 +1,7 @@
-import { useState, useRef } from 'react'
+import { useState } from 'react'
+import { useLocation } from 'react-router-dom'
 import HeaderBanner from '../../components/HeaderBanner/HeaderBanner'
+import securityServices from '../../data/securityServices'
 import './ContactUs.css'
 
 const faqs = [
@@ -29,7 +31,7 @@ function FaqItem({ question, answer }) {
   const [open, setOpen] = useState(false)
   return (
     <div className={`hs-faq-item ${open ? 'open' : ''}`}>
-      <button className="hs-faq-q" onClick={() => setOpen(p => !p)}>
+      <button className="hs-faq-q" onClick={() => setOpen(p => !p)} aria-expanded={open}>
         <span>{question}</span>
         <i className={`ri-${open ? 'subtract-fill' : 'add-line'}`} />
       </button>
@@ -40,11 +42,18 @@ function FaqItem({ question, answer }) {
 
 function ContactUs() {
   const [submitted, setSubmitted] = useState(false)
+  const location = useLocation()
+  const requestedService = location.state?.service || ''
 
   const handleSubmit = (e) => {
     e.preventDefault()
+    const data = new FormData(e.currentTarget)
+    const subject = encodeURIComponent(`Security enquiry from ${data.get('name')}`)
+    const body = encodeURIComponent(
+      `Name: ${data.get('name')}\nEmail: ${data.get('email')}\nPhone: ${data.get('phone')}\nService: ${data.get('service') || 'Not specified'}\n\nRequirements:\n${data.get('message')}`
+    )
     setSubmitted(true)
-    setTimeout(() => setSubmitted(false), 4000)
+    window.location.href = `mailto:hello@harmonysecurity.com?subject=${subject}&body=${body}`
   }
 
   return (
@@ -117,41 +126,41 @@ function ContactUs() {
             {submitted ? (
               <div className="hs-success">
                 <div className="hs-success-icon"><i className="fa fa-check-circle" /></div>
-                <h3>Request Sent!</h3>
-                <p>Thank you! A member of our team will be in touch within one business day.</p>
+                <h3>Your email draft is ready</h3>
+                <p>Complete the message in your email app to send your request to our team.</p>
+                <button type="button" className="hs-submit" onClick={() => setSubmitted(false)}>Back to form</button>
               </div>
             ) : (
               <form onSubmit={handleSubmit}>
                 <div className="hs-form-header">
                   <h3>Send your request</h3>
-                  <p>Fill in the details below and we'll get back to you.</p>
+                  <p>Fill in the details below and we&apos;ll get back to you.</p>
                 </div>
 
                 <div className="hs-form-row">
                   <div className="hs-form-group">
                     <label>Your Name <span>*</span></label>
-                    <input type="text" placeholder="John Smith" required />
+                    <input name="name" type="text" placeholder="John Smith" autoComplete="name" required />
                   </div>
                   <div className="hs-form-group">
                     <label>Work Email <span>*</span></label>
-                    <input type="email" placeholder="john@company.com" required />
+                    <input name="email" type="email" placeholder="john@company.com" autoComplete="email" required />
                   </div>
                 </div>
 
                 <div className="hs-form-row">
                   <div className="hs-form-group">
                     <label>Phone Number <span>*</span></label>
-                    <input type="tel" placeholder="+91 XXXXX XXXXX" required />
+                    <input name="phone" type="tel" placeholder="+91 XXXXX XXXXX" autoComplete="tel" required />
                   </div>
                   <div className="hs-form-group">
                     <label>Service Needed</label>
-                    <select>
+                    <select name="service" defaultValue={requestedService}>
                       <option value="">Select a service</option>
-                      <option>Bodyguard & Executive Protection</option>
-                      <option>Security Guarding</option>
-                      <option>Facility Cleaning</option>
-                      <option>VIP & Event Security</option>
-                      <option>CCTV Monitoring</option>
+                      {securityServices.map((service) => (
+                        <option key={service.title} value={service.title}>{service.title}</option>
+                      ))}
+                      <option>Housekeeping Services</option>
                       <option>Other</option>
                     </select>
                   </div>
@@ -159,16 +168,16 @@ function ContactUs() {
 
                 <div className="hs-form-group">
                   <label>How can we help?</label>
-                  <textarea placeholder="Tell us about your security requirements..." required></textarea>
+                  <textarea name="message" placeholder="Tell us about your security requirements..." required></textarea>
                 </div>
 
                 <button type="submit" className="hs-submit">
-                  <span>Send my request</span>
+                  <span>Continue via email</span>
                   <i className="fa fa-arrow-right" />
                 </button>
 
                 <p className="hs-form-note">
-                  <i className="fa fa-shield" /> Your information is safe and will never be shared.
+                  <i className="fa fa-envelope" /> This opens your email app so you can review the message before sending.
                 </p>
               </form>
             )}

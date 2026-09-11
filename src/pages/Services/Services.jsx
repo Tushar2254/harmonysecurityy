@@ -1,137 +1,171 @@
-import { useNavigate } from 'react-router-dom'
-import HeaderBanner from '../../components/HeaderBanner/HeaderBanner'
+import { useEffect, useState } from 'react'
+import { Link, useNavigate } from 'react-router-dom'
+import securityServices from '../../data/securityServices'
 import './Services.css'
 
-const services = [
-  {
-    image: '/Watchman/privatewatchman.jpg',
-    icon: 'fas fa-home',
-    title: 'Residential Security',
-    description: 'Reliable security for housing complexes, bungalows, and societies. Safety is our commitment.'
-  },
-  {
-    image: '/Watchman/commercial_watchman.jpeg',
-    icon: 'fas fa-building',
-    title: 'Commercial Security',
-    description: 'Ensure a safe, anti-theft atmosphere for your customers at banks, hospitals, and offices.'
-  },
-  {
-    image: '/Watchman/watchmanBack.jpeg',
-    icon: 'fas fa-calendar-check',
-    title: 'Event & Site Security',
-    description: 'Ensuring a safe workplace and event environment. Protecting your business, ensuring peace of mind.'
-  },
-  {
-    image: '/Watchman/bouncer1.jpg',
-    icon: 'fas fa-user-shield',
-    title: 'Bodyguard / Bouncer',
-    description: 'Elite personal protection services. Trust us for unmatched security and peace of mind.'
-  },
-  {
-    image: 'Gallery/vision.jpg',
-    icon: 'fas fa-chalkboard-teacher',
-    title: 'Staff Training Services',
-    description: 'Professional training programs for security and housekeeping staff to meet industry standards.'
-  },
-  {
-    image: 'HouseKeeping1.jpg',
-    icon: 'fas fa-broom',
-    title: 'HouseKeeping Services',
-    description: 'Enrich productivity with our professional and calming housekeeping services.'
-  }
+const heroServiceSlides = [
+  { image: '/Gallery/aashb.png', icon: 'fas fa-shopping-bag', title: 'Shopping Mall Security', detail: 'Screening & visitor safety' },
+  { image: '/Gallery/access.png', icon: 'fas fa-id-card', title: 'Access Control', detail: 'Secure workplace entry' },
+  { image: '/Gallery/aa.png', icon: 'fas fa-users', title: 'Event Security', detail: 'Crowd & venue protection' },
+  { image: '/Gallery/cyber.png', icon: 'fas fa-video', title: 'CCTV Monitoring', detail: 'Always-on surveillance' },
+  { image: '/Gallery/ui.png', icon: 'fas fa-industry', title: 'Industrial Security', detail: 'Perimeter & asset patrol' },
+  { image: '/Gallery/Gallery1.jpeg', icon: 'fas fa-landmark', title: 'Bank Security', detail: 'Alert anti-theft protection' }
 ]
 
 function Services() {
   const navigate = useNavigate()
+  const [heroSlide, setHeroSlide] = useState(0)
+
+  useEffect(() => {
+    const slideTimer = window.setInterval(() => {
+      setHeroSlide((currentSlide) => (currentSlide + 1) % heroServiceSlides.length)
+    }, 2500)
+
+    return () => window.clearInterval(slideTimer)
+  }, [])
+
+  const activeHeroService = heroServiceSlides[heroSlide]
 
   return (
     <>
-      <HeaderBanner
-        backgroundImage="/Handshake.jpg"
-        title="WHAT WE DO"
-        text="At Harmony, Expert Security, Exceptional Cleaning."
-      />
+      <section className="services-hero">
+        <div className="services-hero-grid" aria-hidden="true" />
+        <div className="services-hero-glow services-hero-glow-one" aria-hidden="true" />
+        <div className="services-hero-glow services-hero-glow-two" aria-hidden="true" />
 
+        <div className="services-hero-inner">
+          <div className="services-hero-copy">
+            <span className="services-hero-kicker"><i className="fas fa-shield-alt" /> Protection built around you</span>
+            <h1>More about <span>WHAT WE DO</span></h1>
+            <p>At Harmony, Expert Security, Exceptional Cleaning.</p>
+            <nav className="services-hero-breadcrumb" aria-label="Breadcrumb">
+              <Link to="/"><i className="fas fa-home" aria-hidden="true" /> Home</Link>
+              <i className="fas fa-chevron-right" aria-hidden="true" />
+              <span>WHAT WE DO</span>
+            </nav>
+          </div>
 
-      {/* ── SERVICE CARDS ── */}
-      <section className="services-grid-section">
-        <div className="services-grid-header" data-aos="fade-up">
-          <span className="svc-tag">What We Offer</span>
-          <h2>Our Security Services</h2>
-          <p>Comprehensive protection solutions tailored to your needs</p>
-        </div>
-        <div className="services-grid">
-          {services.map((svc, i) => (
-            <div
-              className="svc-card"
-              key={i}
-              data-aos="fade-up"
-              data-aos-delay={i * 80}
-              data-aos-duration="700"
-            >
-              <div className="svc-card-img">
-                <img src={svc.image} alt={svc.title} />
-                <div className="svc-card-icon">
-                  <i className={svc.icon}></i>
-                </div>
-              </div>
-              <div className="svc-card-body">
-                <h3>{svc.title}</h3>
-                <p>{svc.description}</p>
-                <a href="/contact-us" className="svc-card-link">
-                  Get Quote <i className="fas fa-arrow-right"></i>
-                </a>
+          <div className="services-hero-visual" aria-hidden="true">
+            <div className="services-hero-frame-shadow" />
+            <div className="services-hero-frame">
+              {heroServiceSlides.map((slide, index) => (
+                <img
+                  src={slide.image}
+                  alt=""
+                  className={`services-hero-slide ${index === heroSlide ? 'active' : ''}`}
+                  key={slide.title}
+                />
+              ))}
+              <span className="services-hero-scan" />
+              <div className="services-hero-frame-label" key={activeHeroService.title}>
+                <i className={activeHeroService.icon} />
+                <div><strong>{activeHeroService.title}</strong><small>{activeHeroService.detail}</small></div>
               </div>
             </div>
+            <div className="services-hero-depth-badge">
+              <span>24/7</span>
+              <small>Security readiness</small>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="services-grid-section">
+        <div className="services-background-visual" aria-hidden="true">
+          <span />
+          <span />
+        </div>
+        <div className="services-grid-header" data-aos="fade-up">
+          <span className="services-svc-tag">What We Offer</span>
+          <h2>Our Services</h2>
+          <p>
+           There are countless reasons to choose us.
+          </p>
+          <div className="services-trust-row" aria-label="Service highlights">
+            <span><i className="fas fa-user-check" aria-hidden="true" /> Trained personnel</span>
+            <span><i className="fas fa-clock" aria-hidden="true" /> 24/7 deployment</span>
+            <span><i className="fas fa-sliders-h" aria-hidden="true" /> Tailored plans</span>
+          </div>
+        </div>
+
+        <div className="services-grid">
+          {securityServices.map((service, index) => (
+            <article
+              className="services-svc-card"
+              key={service.title}
+              data-aos="fade-up"
+              data-aos-delay={(index % 3) * 70}
+              data-aos-duration="700"
+            >
+              <div className="services-svc-card-img">
+                <img src={service.image} alt={service.title} loading="lazy" />
+              </div>
+              <div className="services-svc-card-body">
+                <h3>{service.title}</h3>
+                <p>{service.description}</p>
+                <Link to="/contact-us" state={{ service: service.title }} className="services-svc-card-link">
+                  <span>Get Quote</span><i className="fas fa-arrow-right" aria-hidden="true" />
+                </Link>
+              </div>
+            </article>
           ))}
         </div>
       </section>
 
-      {/* ── TRAINING STRIP ── */}
+      <section className="services-cta-band">
+        <div>
+          <span className="services-svc-tag">Not sure what you need?</span>
+          <h2>Let us build the right security plan for you.</h2>
+          <p>Tell us about your property or event and our team will recommend a practical, cost-effective solution.</p>
+        </div>
+        <Link to="/contact-us" className="services-cta-button">
+          Request a Consultation <i className="fas fa-arrow-right" aria-hidden="true" />
+        </Link>
+      </section>
+
       <section className="training-strip" data-aos="fade-up" data-aos-duration="1000">
         <div className="training-strip-inner">
           <div className="training-strip-img">
-            <img src="Gallery/fire1.jpg" alt="Security Training" />
+            <img src="/Gallery/fire1.jpg" alt="Harmony security guard training" loading="lazy" />
           </div>
           <div className="training-strip-text">
-            <span className="svc-tag">Training Programs</span>
+            <span className="services-svc-tag">Training Programs</span>
             <h2>The Training We Offer</h2>
             <p>
               Our training programs are developed in close consultation with relevant personnel to ensure the
               specific needs of each organisation are met.
             </p>
             <ul className="training-list">
-              <li><i className="fas fa-shield-alt"></i> Emergency response &amp; Incident reporting</li>
-              <li><i className="fas fa-shield-alt"></i> Customer service &amp; Armed robbery protocols</li>
-              <li><i className="fas fa-shield-alt"></i> Suspicious packages &amp; Holding techniques</li>
-              <li><i className="fas fa-shield-alt"></i> Hazard Identification &amp; Risk assessment</li>
-              <li><i className="fas fa-shield-alt"></i> Supervisor training</li>
+              <li><i className="fas fa-shield-alt" /> Emergency response &amp; incident reporting</li>
+              <li><i className="fas fa-shield-alt" /> Customer service &amp; armed robbery protocols</li>
+              <li><i className="fas fa-shield-alt" /> Suspicious packages &amp; holding techniques</li>
+              <li><i className="fas fa-shield-alt" /> Hazard identification &amp; risk assessment</li>
+              <li><i className="fas fa-shield-alt" /> Supervisor training</li>
             </ul>
             <button className="training-btn" onClick={() => navigate('/training')}>
-              Know More <i className="fas fa-arrow-right"></i>
+              Know More <i className="fas fa-arrow-right" />
             </button>
           </div>
         </div>
       </section>
 
-       {/* ── INTRO ── */}
       <section className="services-intro">
         <div className="services-intro-inner">
           <div className="services-intro-img" data-aos="fade-right" data-aos-duration="900">
-            <img src="/culture.jpg" alt="Culture" />
+            <img src="/Gallery/Training3.jpeg" alt="Harmony security team briefing" loading="lazy" />
           </div>
           <div className="services-intro-text" data-aos="fade-left" data-aos-duration="900">
-            <span className="svc-tag">Our Culture</span>
-            <h2>Culture We Nourish</h2>
+            <span className="services-svc-tag">Our Culture</span>
+            <h2>Professionalism Behind Every Post</h2>
             <p>
-              We emphasize integrity, vigilance, and continuous improvement. Our team is dedicated to providing
-              top-tier security services while nurturing a supportive and ethical work environment.
+              We emphasise integrity, vigilance and continuous improvement. Our team is committed to dependable
+              security while maintaining a respectful, responsible and service-led culture.
             </p>
             <ul className="culture-list">
-              <li><i className="fas fa-check-circle"></i><div><strong>Integrity at Core</strong> — Upholding the highest ethical standards in all our operations.</div></li>
-              <li><i className="fas fa-check-circle"></i><div><strong>Vigilant Monitoring</strong> — Ensuring 24/7 surveillance to protect assets and individuals.</div></li>
-              <li><i className="fas fa-check-circle"></i><div><strong>Continuous Improvement</strong> — Regular training to stay ahead in the security industry.</div></li>
-              <li><i className="fas fa-check-circle"></i><div><strong>Community Engagement</strong> — Actively participating in local initiatives to strengthen community ties.</div></li>
+              <li><i className="fas fa-check-circle" /><div><strong>Integrity at Core</strong> — Upholding high ethical standards in every assignment.</div></li>
+              <li><i className="fas fa-check-circle" /><div><strong>Vigilant Monitoring</strong> — Maintaining alert, consistent protection of people and property.</div></li>
+              <li><i className="fas fa-check-circle" /><div><strong>Continuous Improvement</strong> — Regular training that keeps our personnel prepared.</div></li>
+              <li><i className="fas fa-check-circle" /><div><strong>Client-Focused Service</strong> — Adapting deployment plans to each client&apos;s environment.</div></li>
             </ul>
           </div>
         </div>

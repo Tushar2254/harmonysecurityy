@@ -1,223 +1,260 @@
-﻿import { Link } from 'react-router-dom'
-import SecurityService from '../../components/SecurityService/SecurityService'
+import { useEffect, useRef } from 'react'
+import { Link } from 'react-router-dom'
 import AnimatedCounter from '../../components/AnimatedCounter/AnimatedCounter'
 import './Home.css'
 
+const proofPoints = [
+  { value: '10', suffix: '+', label: 'Years of trust' },
+  { value: '200', suffix: '+', label: 'Trained personnel' },
+  { value: '25', suffix: '+', label: 'Active sites' },
+  { value: '24', suffix: '/7', label: 'Operational control' },
+]
+
+const capabilities = [
+  {
+    number: '01',
+    eyebrow: 'Physical protection',
+    title: 'Professional guarding with a commanding presence.',
+    text: 'Carefully recruited and continuously trained security professionals protect commercial, residential and institutional environments with discipline, vigilance and respect.',
+    image: '/Home2/access-control.png',
+    alt: 'Harmony security officer managing access at a corporate lobby',
+    points: ['Tailored deployment plans', 'Professional access control', 'Digital field reporting'],
+  },
+  {
+    number: '02',
+    eyebrow: 'Always watching',
+    title: 'Intelligent monitoring. Immediate awareness.',
+    text: 'Our 24-hour control room connects people, patrols and real-time site intelligence—helping teams identify risk early and respond with clarity.',
+    image: '/Gallery/cyber.png',
+    alt: 'Security operations team monitoring CCTV feeds',
+    points: ['Remote site monitoring', 'Real-time reporting', 'Escalation-ready operations'],
+  },
+  {
+    number: '03',
+    eyebrow: 'Rapid response',
+    title: 'Prepared when every second matters.',
+    text: 'Dedicated patrol management and a standby Quick Response Team reinforce your on-site protection with decisive support for emergency situations.',
+    image: '/Home2/night-patrol.png',
+    alt: 'Professional security response team conducting a night patrol',
+    points: ['Standby QRT', 'Smart patrol management', 'Crisis-ready training'],
+  },
+]
+
+const sectors = [
+  { image: '/Slider/residential.png', label: 'Residential Buildings' },
+  { image: '/Slider/browser.png', label: 'IT & Technology' },
+  { image: '/Slider/hospital.png', label: 'Hospitals' },
+  { image: '/Slider/supermarket.png', label: 'Super Market' },
+  { image: '/Slider/commercial.png', label: 'Commercial Spaces' },
+  { image: '/Slider/shopping-mall.png', label: 'Malls' },
+  { image: '/Slider/bank.png', label: 'Banks' },
+  { image: '/Slider/conveyor.png', label: 'Manufacturing' },
+  { image: '/Slider/retailer.png', label: 'Retail' },
+  { image: '/Slider/contruction.png', label: 'Real Estate' },
+  { image: '/Slider/engagement.png', label: 'Events' },
+  { image: '/Slider/fraud.png', label: 'Private Investigation' },
+]
+
 const clientLogos = [
-  { name: 'Godrej Shrewood',   imgSrc: '/Godrej_Shrewood.png' },
-  { name: 'Godrej Properties', imgSrc: '/Godrej_Properties.png' },
-  { name: 'Yamaha',            imgSrc: '/yamaha.png' },
-  { name: 'TVS',               imgSrc: '/tvs.png' },
-  { name: 'Harmony',           imgSrc: '/logo.jpg' },
-  { name: 'Modi',              imgSrc: '/modi1.jpg' },
-  { name: 'CKE Xpress',        imgSrc: '/ckeXpress.jpg' },
-  { name: 'Rachana',           imgSrc: 'https://rachanalifestyle.com/wp-content/uploads/2018/10/rachana-lifestyle-logo-606.png' },
-]
-
-const industries = [
-  { img: 'Slider/residential.png', label: 'Residential Buildings' },
-  { img: 'Slider/browser.png', label: 'IT & Technology' },
-  { img: 'Slider/hospital.png', label: 'Hospitals' },
-  { img: 'Slider/supermarket.png', label: 'Super Market' },
-  { img: 'Slider/commercial.png', label: 'Commercial Spaces' },
-  { img: 'Slider/shopping-mall.png', label: 'Malls' },
-  { img: 'Slider/bank.png', label: 'Banks' },
-  { img: 'Slider/conveyor.png', label: 'Manufacturing' },
-  { img: 'Slider/retailer.png', label: 'Retail' },
-  { img: 'Slider/contruction.png', label: 'Real Estate' },
-  { img: 'Slider/engagement.png', label: 'Events' },
-  { img: 'Slider/fraud.png', label: 'Private Works' },
-]
-
-const stats = [
-  { value: '10', suffix: '+', label: 'Years of Excellence', icon: 'fas fa-award' },
-  { value: '30', suffix: '+', label: 'Happy Clients',       icon: 'fas fa-users' },
-  { value: '200', suffix: '+', label: 'Security Staff',     icon: 'fas fa-user-shield' },
-  { value: '25', suffix: '+', label: 'Active Sites',        icon: 'fas fa-map-marker-alt' },
-]
-
-const whyChooseItems = [
-  { text: '10+ Years of Experience in the Security & Investigation industry!', tone: 'cyan' },
-  { text: 'Digitalised Field & Operations Reporting.', tone: 'blue', featured: true },
-  { text: 'Remote real-time monitoring & reporting of sites.', tone: 'teal' },
-  { text: 'Advantage of Patrol Management Systems.', tone: 'gold' },
-  { text: 'In-house Training Institute licenced under Homeguard.', tone: 'blue' },
-  { text: 'On site Security Training every month.', tone: 'cyan' },
-  { text: 'Quick Response Team (QRT) for any emergency situations.', tone: 'gold', featured: true },
-  { text: 'Customised services to meet your needs & requirements.', tone: 'teal' },
-  { text: 'One stop solution for all your security needs.', tone: 'cyan' },
-  { text: 'Highly experienced Operations & Managerial staff including ex-Military.', tone: 'blue' },
-  { text: 'Channel Partners with domestic & international security suppliers.', tone: 'teal', featured: true },
-  { text: 'Integrated security systems and physical security solutions.', tone: 'gold' },
+  { name: 'Godrej Sherwood', image: '/Godrej_Shrewood.png' },
+  { name: 'Knight Frank', image: '/Knight Frank.svg' },
+  { name: 'Godrej Properties', image: '/Godrej_Properties.png' },
+  { name: 'Yamaha', image: '/yamaha.png' },
+  { name: 'TVS', image: '/tvs.png' },
+  { name: 'Kawasaki', image: '/kawasaki.jpg' },
+  { name: 'Sprint Co-Works', image: '/sprint.png' },
+  { name: 'Vi', image: '/VI.webp' },
+  { name: 'EFC', image: '/clients.png' },
 ]
 
 function Home() {
+  const pageRef = useRef(null)
+
+  useEffect(() => {
+    const page = pageRef.current
+    if (!page) return undefined
+
+    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+    const revealItems = page.querySelectorAll('[data-h2-reveal]')
+    if (reducedMotion) {
+      revealItems.forEach((item) => item.classList.add('h2-visible'))
+      return undefined
+    }
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('h2-visible')
+          observer.unobserve(entry.target)
+        }
+      })
+    }, { threshold: 0.14, rootMargin: '0px 0px -8% 0px' })
+    revealItems.forEach((item) => observer.observe(item))
+
+    let frame = null
+    const updateScene = () => {
+      frame = null
+      const scrollY = window.scrollY
+      page.style.setProperty('--h2-scroll', `${scrollY}px`)
+      page.querySelectorAll('[data-h2-depth]').forEach((item) => {
+        const rect = item.getBoundingClientRect()
+        const progress = (window.innerHeight * 0.5 - (rect.top + rect.height * 0.5)) / window.innerHeight
+        item.style.setProperty('--h2-depth-y', `${Math.max(-1, Math.min(1, progress)) * 46}px`)
+      })
+    }
+    const requestUpdate = () => {
+      if (frame === null) frame = window.requestAnimationFrame(updateScene)
+    }
+    updateScene()
+    window.addEventListener('scroll', requestUpdate, { passive: true })
+    window.addEventListener('resize', requestUpdate)
+    return () => {
+      observer.disconnect()
+      window.removeEventListener('scroll', requestUpdate)
+      window.removeEventListener('resize', requestUpdate)
+      if (frame !== null) window.cancelAnimationFrame(frame)
+    }
+  }, [])
+
+  const handlePointerMove = (event) => {
+    const bounds = event.currentTarget.getBoundingClientRect()
+    const x = (event.clientX - bounds.left) / bounds.width - 0.5
+    const y = (event.clientY - bounds.top) / bounds.height - 0.5
+    event.currentTarget.style.setProperty('--h2-shift-x', `${x * -18}px`)
+    event.currentTarget.style.setProperty('--h2-shift-y', `${y * -12}px`)
+    event.currentTarget.style.setProperty('--h2-card-rotate-y', `${x * -3}deg`)
+    event.currentTarget.style.setProperty('--h2-card-rotate-x', `${y * 2}deg`)
+    event.currentTarget.style.setProperty('--h2-grid-rotate-x', `${55 + y * 2}deg`)
+  }
+
   return (
-    <>
-      {/* ── HERO BANNER ── */}
-      <section className="hero-banner">
-        <div className="hero-slides">
-          <img src="/Gallery/Training1.jpeg" alt="Security Training" className="hero-slide" />
-          <img src="/HomeP.jpeg"             alt="Security"          className="hero-slide" />
-          <img src="/Home3.jpeg"             alt="Security"          className="hero-slide" />
+    <main className="home2" ref={pageRef}>
+      <section className="h2-hero" onPointerMove={handlePointerMove}>
+        <div className="h2-hero-slides" aria-hidden="true">
+          <div className="h2-hero-slide-track">
+            <img className="h2-hero-bg" src="/Gallery/Training1.jpeg" alt="" />
+            <img className="h2-hero-bg" src="/HomeP.jpeg" alt="" />
+            <img className="h2-hero-bg" src="/Home2/hero-guarding.png" alt="" />
+          </div>
         </div>
-        <div className="hero-overlay" />
-        <div className="hero-content">
-          <span className="hero-badge">Trusted Since 2014</span>
-          <br></br>
-          <h1 className="hero-title">
-            HARMONY GROUP<br />
-            <span className="hero-highlight">Security</span><br />
-            Services
-          </h1>
-          <p className="hero-subtitle">
-            One Step Ahead in Security & Investigation
-          </p>
-          {/* <div className="hero-actions">
-            <Link to="/contact-us" className="hero-btn-primary">
-              Get in Touch <i className="fas fa-arrow-right"></i>
-            </Link>
-            <Link to="/services" className="hero-btn-secondary">
-              Our Services
-            </Link>
-          </div> */}
+        <div className="h2-hero-shade" />
+        <div className="h2-hero-grid" aria-hidden="true" />
+        <div className="h2-particles" aria-hidden="true">
+          {Array.from({ length: 18 }, (_, index) => <span key={index} style={{ '--i': index, top: `${8 + (index * 17) % 82}%`, left: `${4 + (index * 29) % 92}%` }} />)}
         </div>
-        <div className="hero-scroll-hint">
-          <span></span>
+        <div className="h2-hero-inner">
+          <div className="h2-hero-copy">
+            <p className="h2-hero-eyebrow"><span /> Trusted security since 2014</p>
+            <h1 className="h2-hero-title">
+              <span className="h2-hero-title-brand">Harmony Group</span>
+              <span className="h2-hero-title-service">Security Services</span>
+            </h1>
+            <p className="h2-hero-lead"><strong>One Step Ahead</strong> in Security &amp; Investigation</p>
+            <div className="h2-actions">
+              <Link className="h2-button h2-button-primary" to="/contact-us">Secure your site <i className="fas fa-arrow-right" /></Link>
+              <Link className="h2-button h2-button-ghost" to="/services">Explore services</Link>
+            </div>
+            <div className="h2-hero-trust"><span><i className="fas fa-check" /> Trusted since 2014</span><span><i className="fas fa-check" /> Statutory compliant</span></div>
+          </div>
+          <div className="h2-command-card" aria-label="Live operations status">
+            <div className="h2-command-top"><span><i /> Operations online</span><strong>24/7</strong></div>
+            <div className="h2-radar"><span /><i className="fas fa-shield-alt" /></div>
+            <div className="h2-command-data"><span>Monitoring<strong>Active</strong></span><span>Response<strong>Ready</strong></span><span>Reporting<strong>Live</strong></span></div>
+          </div>
+        </div>
+        <div className="h2-scroll-mark" aria-hidden="true"><span /> Scroll to explore</div>
+      </section>
+
+      <section className="h2-proof" aria-label="Harmony Security in numbers">
+        <p><i className="fas fa-shield-alt" /><span>One integrated<br />security partner</span></p>
+        <div>
+          {proofPoints.map((item, index) => <article key={item.label} style={{ '--proof-index': index }}><strong><AnimatedCounter target={item.value} suffix={item.suffix} duration={2600} /></strong><span>{item.label}</span></article>)}
         </div>
       </section>
 
-      {/* ── ABOUT STRIP ── */}
-      <section className="about-strip">
-        <div className="about-strip-inner">
-          <div className="about-strip-img" data-aos="fade-right" data-aos-duration="1000">
-            <img src="/Watchman/watchman_cover.jpeg" alt="Watchman" />
-            <div className="about-strip-badge">
-              <span>10+</span>
-              <p>Years of Trust</p>
-            </div>
-          </div>
-          <div className="about-strip-text" data-aos="fade-left" data-aos-duration="1000">
-            <span className="section-tag">Who We Are</span>
-            <h2>Harmony Group Security Services</h2>
-            <p className="hs-tagline-italic">You Relax, We Care!</p>
-            <p>
-              Harmony Security Services ensures reliable security all over Pune. We offer quality Security and
-              Housekeeping services for Commercial Areas like malls as well as Residential areas like Bungalows,
-              Housing complexes, and Co-operative housing societies.
-            </p>
-            <p>
-              We specialize in providing tailor-made, professional security services to satisfy all your needs —
-              creating a safe and secure environment for complete peace of mind.
-            </p>
-            <Link to="/about-us" className="strip-link">
-              Learn More <i className="fas fa-chevron-right"></i>
-            </Link>
+      <section className="h2-intro">
+        <div className="h2-section-label" data-h2-reveal>Built for complete confidence</div>
+        <div className="h2-intro-grid">
+          <h2 data-h2-reveal>Security is not a <span className="h2-uniform-word">uniform.</span><br /><span>It's a </span><strong className="h2-trust-word" aria-label="Trust."><span className="h2-trust-sizer" aria-hidden="true">Trust..</span><span className="h2-trust-flipper" aria-hidden="true"><span className="h2-trust-face h2-trust-face-front">Trust.</span><span className="h2-trust-face h2-trust-face-back">Trust.</span></span><span className="h2-trust-gloss" aria-hidden="true" /></strong></h2>
+          <div data-h2-reveal>
+            <p>Harmony Security Services provides reliable security and housekeeping solutions across Pune for commercial premises, malls, bungalows, housing societies and cooperative residential communities.</p>
+            <p>Our relationship-led approach combines carefully selected personnel, continuous training, digital reporting and round-the-clock operational support.</p>
+            <Link to="/about-us">Discover who we are <i className="fas fa-arrow-right" /></Link>
           </div>
         </div>
       </section>
 
-      {/* ── STATS ── */}
-      <section className="stats-band">
-        {stats.map((s, i) => (
-          <div className="stat-item" key={i}>
-            <div className="stat-icon">
-              <i className={s.icon}></i>
-            </div>
-            <h3>
-              <AnimatedCounter target={s.value} suffix={s.suffix} duration={2200} />
-            </h3>
-            <p>{s.label}</p>
-            <div className="stat-glow"></div>
+      <section className="h2-clients">
+        <div className="h2-clients-heading" data-h2-reveal>
+          <img className="h2-clients-logo" src="/HGS_Harmony_Group_Services_Logo_Transparent_High_Resolution.png" alt="Harmony Group Security Services" />
+          <p className="h2-kicker">Trusted partnerships</p>
+          <h2>Protected by Harmony.</h2>
+        </div>
+        <div className="h2-client-track"><div>{[...clientLogos, ...clientLogos].map((client, index) => <span key={`${client.name}-${index}`} aria-hidden={index >= clientLogos.length}><img src={client.image} alt={index < clientLogos.length ? `${client.name} logo` : ''} loading="lazy" /></span>)}</div></div>
+      </section>
+
+      <section className="h2-sectors-stage">
+        <div className="h2-sector-atmosphere" aria-hidden="true"><span /><span /><span /></div>
+        <div className="h2-sectors">
+          <div className="h2-sectors-copy" data-h2-reveal>
+            <div className="h2-section-label">Sectors we protect</div>
+            <h2>Expertise across<br /><span>every environment.</span></h2>
+            <p>Flexible security programs shaped around your property, people, operating hours and risk profile.</p>
           </div>
+          <div className="h2-sector-grid">
+            {sectors.map((sector, index) => <article data-h2-reveal key={sector.label} style={{ '--delay': `${index * 45}ms` }}><span><img src={sector.image} alt="" loading="lazy" /></span><h3>{sector.label}</h3></article>)}
+          </div>
+        </div>
+      </section>
+
+      <section className="h2-capabilities" aria-labelledby="h2-capability-title">
+        <div className="h2-capability-heading" data-h2-reveal>
+          <div className="h2-section-label">Integrated protection</div>
+          <h2 id="h2-capability-title">Every layer.<br /><span>Working as one.</span></h2>
+        </div>
+        {capabilities.map((capability, index) => (
+          <article className={`h2-capability ${index % 2 ? 'h2-capability-reverse' : ''}`} key={capability.title}>
+            <div className="h2-capability-visual" data-h2-reveal>
+              <div data-h2-depth><img src={capability.image} alt={capability.alt} loading="lazy" /></div>
+              <span>{capability.number}</span>
+            </div>
+            <div className="h2-capability-copy" data-h2-reveal>
+              <p className="h2-kicker h2-capability-kicker" style={{ '--capability-index': index }}><span className="h2-capability-step">{capability.number}</span><span>{capability.eyebrow}</span></p>
+              {index === 1
+                ? <h3 className="h2-monitoring-title"><span className="h2-monitoring-line-one">Intelligent <em>monitoring.</em></span><span className="h2-monitoring-line-two"><em>Immediate</em> awareness.</span></h3>
+                : <h3>{capability.title}</h3>}
+              <p>{capability.text}</p>
+              <ul>{capability.points.map((point) => <li key={point}><i className="fas fa-check" />{point}</li>)}</ul>
+              <Link to="/services">View service details <i className="fas fa-arrow-right" /></Link>
+            </div>
+          </article>
         ))}
       </section>
 
-      {/* ── INDUSTRIES SLIDER ── */}
-      <section className="industries-section">
-        <div className="industries-header" data-aos="fade-up">
-          <span className="section-tag">Sectors We Protect</span>
-          <h2><span>Industries</span> We Serve</h2>
+      <section className="h2-brand-showcase" aria-label="Harmony Group Security Services">
+        <div className="h2-brand-halo" aria-hidden="true" />
+        <div className="h2-brand-logo-shell" data-h2-reveal>
+          <span className="h2-brand-ring h2-brand-ring-outer" aria-hidden="true" />
+          <span className="h2-brand-ring h2-brand-ring-inner" aria-hidden="true" />
+          <img src="/HGS_Harmony_Group_Services_Logo_Transparent_High_Resolution.png" alt="HGS Harmony Group Security Services" loading="lazy" />
+          <span className="h2-brand-logo-gloss" aria-hidden="true" />
         </div>
-        <div className="industries-track-wrap">
-          <div className="industries-track">
-            {[...industries, ...industries].map((item, i) => (
-              <div className="industry-card" key={i}>
-                <img src={item.img} alt={item.label} />
-                <p>{item.label}</p>
-              </div>
-            ))}
-          </div>
-        </div>
+        {/* <p className="h2-brand-name" data-h2-reveal>Harmony Group Security Services</p> */}
+        <h2 className="h2-brand-tagline" data-h2-reveal><span className="h2-tagline-black">You</span> <span className="h2-tagline-blue">Relax,</span> <span className="h2-tagline-black">We</span> <span className="h2-tagline-red">Care...!</span></h2>
       </section>
 
-       {/* ── OUR CLIENTS ── */}
-      <section className="home-clients-section">
-        <div className="home-clients-header" data-aos="fade-up">
-          <span className="section-tag">Trusted By</span>
-          <h2>Our <span>Clients</span></h2>
-          <p>Trusted by leading organizations across Pune for over a decade.</p>
-        </div>
-        <div className="home-clients-track-wrap">
-          <div className="home-clients-fade home-clients-fade-left" />
-          <div className="home-clients-track">
-            {[...clientLogos, ...clientLogos].map((c, i) => (
-              <div key={i} className="home-client-pill">
-                <img src={c.imgSrc} alt={c.name} loading="lazy" />
-              </div>
-            ))}
-          </div>
-          <div className="home-clients-fade home-clients-fade-right" />
+      <section className="h2-final-cta" data-h2-reveal>
+        <div className="h2-final-glow" aria-hidden="true" />
+        <p className="h2-kicker h2-kicker-red">Your security. Our responsibility.</p>
+        <h2>Let&apos;s build a safer<br /><span>environment together.</span></h2>
+        <p>Tell us what you need to protect. Our team will shape a professional security plan around your requirements.</p>
+        <div className="h2-actions">
+          <Link className="h2-button h2-button-primary" to="/contact-us">Request a consultation <i className="fas fa-arrow-right" /></Link>
+          <a className="h2-button h2-button-ghost" href="tel:+917584526824"><i className="fas fa-phone" /> Call our team</a>
         </div>
       </section>
-      
-
-      {/* ── SERVICES OVERVIEW ── */}
-      <SecurityService />
-
-
-      {/* ── WHY CHOOSE US ── */}
-      <section className="why-choose-section">
-        <div className="why-choose-orbs" aria-hidden="true">
-          <span className="why-orb why-orb-cyan" />
-          <span className="why-orb why-orb-blue" />
-          <span className="why-orb why-orb-gold" />
-        </div>
-        <div className="why-choose-header" data-aos="fade-up">
-          <p className="why-tag">What's so special?</p>
-          <h2>Why Choose <span>Us?</span></h2>
-          <p className="why-choose-lead">
-            Built for reliability — trained people, live reporting, and a response team when it matters.
-          </p>
-        </div>
-        <div className="why-choose-grid">
-          {whyChooseItems.map((item, i) => (
-            <article
-              key={i}
-              className={`why-card why-card-${item.tone}${item.featured ? ' why-card-featured' : ''}`}
-              data-aos="fade-up"
-              data-aos-delay={Math.min(i * 60, 400)}
-            >
-              <p>{item.text}</p>
-              <span className="why-card-bar" />
-            </article>
-          ))}
-        </div>
-      </section>
-
-      {/* ── CTA BAND ── */}
-      <section className="cta-band">
-        <div className="cta-band-inner" data-aos="fade-up">
-          <h2>We are one of the most trusted Security agency in Pune.</h2>
-          <p>Get in touch with us now!</p>
-          <Link to="/contact-us" className="cta-band-btn">
-            Get in Touch <i className="fas fa-arrow-right"></i>
-          </Link>
-        </div>
-      </section>
-    </>
+    </main>
   )
 }
 
 export default Home
-

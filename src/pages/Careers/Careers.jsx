@@ -1,8 +1,9 @@
-import { useState } from 'react'
-import HeaderBanner from '../../components/HeaderBanner/HeaderBanner'
+import { useRef, useState } from 'react'
+import { Link } from 'react-router-dom'
 import './Careers.css'
 
 function Careers() {
+  const sectionRef = useRef(null)
   const [submitted, setSubmitted] = useState(false)
   const [form, setForm] = useState({
     title: '', name: '', email: '', tel: '',
@@ -12,31 +13,84 @@ function Careers() {
 
   const set = (k, v) => setForm(f => ({ ...f, [k]: v }))
 
+  const handlePointerMove = (event) => {
+    if (!sectionRef.current || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
+    const bounds = sectionRef.current.getBoundingClientRect()
+    const x = (event.clientX - bounds.left) / bounds.width
+    const y = (event.clientY - bounds.top) / bounds.height
+    sectionRef.current.style.setProperty('--career-rx', `${(0.5 - y) * 8}deg`)
+    sectionRef.current.style.setProperty('--career-ry', `${(x - 0.5) * 11}deg`)
+    sectionRef.current.style.setProperty('--career-card-rx', `${(0.5 - y) * 1.2}deg`)
+    sectionRef.current.style.setProperty('--career-card-ry', `${(x - 0.5) * 1.8}deg`)
+    sectionRef.current.style.setProperty('--career-px', `${x * 100}%`)
+    sectionRef.current.style.setProperty('--career-py', `${y * 100}%`)
+  }
+
+  const resetPerspective = () => {
+    sectionRef.current?.style.setProperty('--career-rx', '0deg')
+    sectionRef.current?.style.setProperty('--career-ry', '0deg')
+    sectionRef.current?.style.setProperty('--career-card-rx', '0deg')
+    sectionRef.current?.style.setProperty('--career-card-ry', '0deg')
+  }
+
   const handleSubmit = (e) => {
     e.preventDefault()
+    const subject = encodeURIComponent(`Career application: ${form.position} — ${form.name}`)
+    const body = encodeURIComponent(
+      `Title: ${form.title}\nName: ${form.name}\nEmail: ${form.email}\nTelephone: ${form.tel}\nEx-Serviceman: ${form.exServiceman || 'Not specified'}\nPosition: ${form.position}\nAge: ${form.age || 'Not specified'}\nEducation: ${form.education || 'Not specified'}\nExperience: ${form.experience || 'Not specified'}\nCity: ${form.city || 'Not specified'}\nAddress: ${form.address || 'Not specified'}\n\nMessage:\n${form.message || 'None'}`
+    )
     setSubmitted(true)
-    setTimeout(() => setSubmitted(false), 5000)
+    window.location.href = `mailto:info@harmonygroup.in?subject=${subject}&body=${body}`
   }
 
   return (
-    <>
-      <HeaderBanner
-        backgroundImage="/Gallery/Training1.jpeg"
-        title="JOIN OUR TEAM"
-        text="Start an Exciting Career With Us"
-      />
+      <section
+        ref={sectionRef}
+        className="careers-section"
+        onPointerMove={handlePointerMove}
+        onPointerLeave={resetPerspective}
+      >
+        <div className="careers-interactive-glow" aria-hidden="true" />
 
-      <section className="careers-section">
+        <div className="careers-combined-hero">
+          <div className="careers-hero-copy">
+            <h1>More about <span>JOIN OUR TEAM</span></h1>
+            <p>Build a career with purpose, discipline and opportunity.</p>
+            <div className="careers-breadcrumb">
+              <Link to="/">Home</Link>
+              <i className="fas fa-chevron-right" aria-hidden="true" />
+              <span>JOIN OUR TEAM</span>
+            </div>
+          </div>
+
+          <div className="careers-3d-scene" aria-hidden="true">
+            <div className="careers-depth-ring careers-depth-ring-one" />
+            <div className="careers-depth-ring careers-depth-ring-two" />
+            <div className="careers-3d-core">
+              <div className="careers-3d-panel careers-3d-panel-back"><i className="fas fa-users" /></div>
+              <div className="careers-3d-panel careers-3d-panel-mid"><i className="fas fa-graduation-cap" /></div>
+              <div className="careers-3d-panel careers-3d-panel-front">
+                <div className="careers-logo-flipper">
+                  <img className="careers-logo-depth careers-logo-depth-one" src="/HGS_Harmony_Group_Services_Logo_Transparent_High_Resolution.png" alt="" />
+                  <img className="careers-logo-depth careers-logo-depth-two" src="/HGS_Harmony_Group_Services_Logo_Transparent_High_Resolution.png" alt="" />
+                  <img className="careers-logo-face careers-logo-face-front" src="/HGS_Harmony_Group_Services_Logo_Transparent_High_Resolution.png" alt="" />
+                  <img className="careers-logo-face careers-logo-face-back" src="/HGS_Harmony_Group_Services_Logo_Transparent_High_Resolution.png" alt="" />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
         <div className="careers-inner">
 
           {/* Left — info */}
           <div className="careers-info">
-            <p className="careers-tag">Apply Today</p>
-            <h2>Start an exciting<br />career with us</h2>
+            <p className="careers-tag"><i className="fas fa-briefcase" aria-hidden="true" /> Careers at Harmony</p>
+            <h2>Protect people.<br />Build your future.</h2>
             <p className="careers-sub">
               We are always looking for dedicated, disciplined, and passionate individuals to join
               the Harmony Security family. Whether you are a fresher or an experienced professional,
-              there's a place for you here.
+              there&apos;s a place for you here.
             </p>
 
             <div className="careers-perks">
@@ -60,8 +114,9 @@ function Careers() {
             {submitted ? (
               <div className="careers-success">
                 <i className="fa fa-check-circle" />
-                <h3>Application Submitted!</h3>
-                <p>Thank you! Our HR team will contact you within 2–3 business days.</p>
+                <h3>Your email draft is ready</h3>
+                <p>Complete the message in your email app to send your application to our HR team.</p>
+                <button type="button" className="cf-submit" onClick={() => setSubmitted(false)}>Back to form</button>
               </div>
             ) : (
               <form onSubmit={handleSubmit}>
@@ -84,18 +139,18 @@ function Careers() {
                 <div className="cf-row">
                   <div className="cf-group">
                     <label>Full Name <span>*</span></label>
-                    <input type="text" placeholder="Your name" required onChange={e => set('name', e.target.value)} />
+                    <input type="text" placeholder="Your name" autoComplete="name" required onChange={e => set('name', e.target.value)} />
                   </div>
                   <div className="cf-group">
                     <label>Email <span>*</span></label>
-                    <input type="email" placeholder="you@email.com" required onChange={e => set('email', e.target.value)} />
+                    <input type="email" placeholder="you@email.com" autoComplete="email" required onChange={e => set('email', e.target.value)} />
                   </div>
                 </div>
 
                 <div className="cf-row">
                   <div className="cf-group">
                     <label>Tel. <span>*</span></label>
-                    <input type="tel" placeholder="+91 XXXXX XXXXX" required onChange={e => set('tel', e.target.value)} />
+                    <input type="tel" placeholder="+91 XXXXX XXXXX" autoComplete="tel" required onChange={e => set('tel', e.target.value)} />
                   </div>
                   <div className="cf-group">
                     <label>Are you an Ex-Serviceman?</label>
@@ -131,7 +186,7 @@ function Careers() {
                   </div>
                   <div className="cf-group">
                     <label>City</label>
-                    <input type="text" placeholder="Pune" onChange={e => set('city', e.target.value)} />
+                    <input type="text" placeholder="Pune" autoComplete="address-level2" onChange={e => set('city', e.target.value)} />
                   </div>
                 </div>
 
@@ -148,7 +203,7 @@ function Careers() {
 
                 <div className="cf-group">
                   <label>Address</label>
-                  <input type="text" placeholder="Your full address" onChange={e => set('address', e.target.value)} />
+                  <input type="text" placeholder="Your full address" autoComplete="street-address" onChange={e => set('address', e.target.value)} />
                 </div>
 
                 <div className="cf-group">
@@ -157,19 +212,18 @@ function Careers() {
                 </div>
 
                 <button type="submit" className="cf-submit">
-                  <span>Send Application</span>
+                  <span>Continue via Email</span>
                   <i className="fa fa-arrow-right" />
                 </button>
 
                 <p className="cf-note">
-                  <i className="fa fa-lock" /> Your information is confidential and secure.
+                  <i className="fa fa-envelope" /> Review your details in your email app before sending.
                 </p>
               </form>
             )}
           </div>
         </div>
       </section>
-    </>
   )
 }
 

@@ -124,7 +124,7 @@
   background: linear-gradient(90deg, #00c6ff, #0072ff, #00c6ff);
   background-size: 200% 100%;
   border-radius: 10px;
-  animation: loadBar 3.2s cubic-bezier(0.4, 0, 0.2, 1) forwards,
+  animation: loadBar 1.8s cubic-bezier(0.4, 0, 0.2, 1) forwards,
              shimmer 1.5s linear infinite;
 }
 

@@ -6,8 +6,8 @@ function Preloader() {
   const [fadeOut, setFadeOut] = useState(false)
 
   useEffect(() => {
-    const fadeTimer = setTimeout(() => setFadeOut(true), 3200)
-    const hideTimer = setTimeout(() => setVisible(false), 3900)
+    const fadeTimer = setTimeout(() => setFadeOut(true), 1800)
+    const hideTimer = setTimeout(() => setVisible(false), 2500)
     return () => {
       clearTimeout(fadeTimer)
       clearTimeout(hideTimer)
@@ -21,7 +21,7 @@ function Preloader() {
       <div className="preloader-inner">
         <div className="preloader-ring">
           <div className="ring-circle"></div>
-          <img src="/logo-removebg-preview.png" alt="Harmony Logo" className="preloader-logo" />
+          <img src="/HGS_Harmony_Group_Services_Logo_Transparent_High_Resolution.png" alt="Harmony Logo" className="preloader-logo" />
         </div>
         <div className="preloader-bar">
           <div className="preloader-progress"></div>

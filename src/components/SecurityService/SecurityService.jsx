@@ -19,16 +19,16 @@ function SecurityService() {
       <div className="svc-container">
 
         <div className="svc-header" data-aos="fade-up">
-          <span className="svc-tag">Our Expertise</span>
+          <span className="security-svc-tag">Our Expertise</span>
           <h2>What We <span>Offer</span></h2>
           <p>Comprehensive security solutions designed to protect people, property, businesses and operations.</p>
         </div>
 
         <div className="svc-grid">
           {services.map((s, i) => (
-            <div key={i} className="svc-card" data-aos="fade-up" data-aos-delay={Math.min(i * 60, 400)}>
+            <article key={s.label} className="security-svc-card" data-aos="fade-up" data-aos-delay={Math.min(i * 60, 400)}>
               {/* Full cover image */}
-              <img src={s.img} alt={s.label} className="svc-img" />
+              <img src={s.img} alt={s.label} className="svc-img" loading="lazy" />
               {/* Gradient overlay */}
               <div className="svc-overlay" />
               {/* Content */}
@@ -39,7 +39,7 @@ function SecurityService() {
                 </div>
                 <p className="svc-label">{s.label}</p>
               </div>
-            </div>
+            </article>
           ))}
         </div>
 

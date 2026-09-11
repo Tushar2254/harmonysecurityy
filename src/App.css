@@ -3,3 +3,117 @@
   display: flex;
   flex-direction: column;
 }
+
+.not-found-page {
+  min-height: 76vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 140px 24px 80px;
+  text-align: center;
+  background: linear-gradient(145deg, #f8fbff, #edf5ff);
+}
+
+.not-found-page > span {
+  color: #0072ff;
+  font: 800 clamp(4rem, 12vw, 8rem)/1 'Montserrat', sans-serif;
+  opacity: 0.14;
+}
+
+.not-found-page h1 { margin: -18px 0 12px; color: #0d1b3e; font-size: clamp(2rem, 5vw, 3.2rem); }
+.not-found-page p { margin: 0 0 28px; color: #5b667a; }
+.not-found-page a { padding: 13px 26px; border-radius: 999px; color: #fff; background: linear-gradient(135deg, #00c6ff, #0072ff); font-weight: 700; text-decoration: none; }
+
+/* Harmony red brand accents */
+:root {
+  --harmony-red: #e32636;
+  --harmony-red-dark: #b80e20;
+  --harmony-red-soft: rgba(227, 38, 54, 0.12);
+}
+
+/* Navigation and shared chrome */
+.harmony-nav { border-bottom-color: rgba(227, 38, 54, 0.2); }
+.harmony-nav::before { background: radial-gradient(280px circle at var(--nav-pointer-x) 50%, rgba(227, 38, 54, 0.12), transparent 72%); }
+.harmony-nav::after { background: linear-gradient(90deg, transparent 0%, var(--harmony-red) 30%, #fff 50%, #0788ff 70%, transparent 100%); }
+.nav-brand > span:not(.nav-brand-sub) { color: #ff4452; }
+.nav-link-item .link-underline { background: linear-gradient(90deg, var(--harmony-red), #ff5966); }
+.nav-link-item:hover,
+.nav-link-item.active { color: #ff5260; }
+.nav-link-item:hover { border-color: rgba(227, 38, 54, 0.22); background: rgba(227, 38, 54, 0.07); }
+.nav-link-item::before { background: linear-gradient(135deg, rgba(227, 38, 54, 0.14), rgba(0, 114, 255, 0.035)); }
+.nav-cta-btn { background: linear-gradient(135deg, #f02d3d, var(--harmony-red-dark)); box-shadow: 0 4px 18px rgba(227, 38, 54, 0.35); }
+.mobile-drawer ul li a:hover,
+.mobile-drawer ul li a.active { border-left-color: var(--harmony-red); background: rgba(227, 38, 54, 0.11); color: #ff5361; }
+.header-banner-content h1 span { background-image: linear-gradient(90deg, #ff4b59, var(--harmony-red), #168cff); }
+.header-banner-breadcrumb span { color: #ff5260; }
+
+/* Home */
+.hero-badge { border-color: rgba(227, 38, 54, 0.55); background: rgba(227, 38, 54, 0.15); color: #ff5361; }
+.hero-highlight { background-image: linear-gradient(90deg, #ff4a58, var(--harmony-red), #168cff); }
+.hero-btn-primary,
+.cta-band-btn { background: linear-gradient(135deg, #f02d3d, var(--harmony-red-dark)); box-shadow: 0 10px 28px rgba(227, 38, 54, 0.32); }
+.section-tag { color: var(--harmony-red); }
+.about-strip-badge { background: linear-gradient(135deg, #f02d3d, var(--harmony-red-dark)); }
+
+/* About */
+.about-cinematic .about-eyebrow { color: var(--harmony-red); }
+.about-cinematic .about-eyebrow i { color: #ff5361; }
+.about-progress span { background: linear-gradient(var(--harmony-red), #0788ff); box-shadow: 0 0 14px rgba(227, 38, 54, 0.58); }
+.about-chapter-number { border-color: rgba(227, 38, 54, 0.22); color: var(--harmony-red); }
+
+/* Services */
+.services-svc-tag { color: var(--harmony-red); }
+.services-svc-card::after { background: linear-gradient(90deg, var(--harmony-red), #0788ff); }
+.services-svc-card:hover { border-color: rgba(227, 38, 54, 0.28); }
+.services-cta-band .services-svc-tag { color: #ff6975; }
+.services-cta-button { background: linear-gradient(135deg, #f02d3d, var(--harmony-red-dark)); box-shadow: 0 12px 30px rgba(227, 38, 54, 0.28); }
+
+/* Careers */
+.careers-tag { border-color: rgba(227, 38, 54, 0.3); background: rgba(227, 38, 54, 0.1); color: #ff5b68; }
+.cf-group label span,
+.cf-note .fa { color: var(--harmony-red); }
+.cf-group input:focus,
+.cf-group select:focus,
+.cf-group textarea:focus { border-color: var(--harmony-red); box-shadow: 0 0 0 3px rgba(227, 38, 54, 0.1); }
+.cf-submit { background: linear-gradient(135deg, #f02d3d, var(--harmony-red-dark)); box-shadow: 0 10px 26px rgba(227, 38, 54, 0.27); }
+
+/* Gallery */
+.gallery-tag { color: #ff6170; }
+.gallery-header h2 span,
+.gallery-header h1 span { background-image: linear-gradient(100deg, #ff5361, var(--harmony-red), #4f8cff); }
+.filter-btn.active { border-color: rgba(227, 38, 54, 0.28); background: linear-gradient(135deg, rgba(227, 38, 54, 0.25), rgba(0, 114, 255, 0.2)); box-shadow: inset 0 1px 0 rgba(255,255,255,.12), 0 8px 22px rgba(227, 38, 54, .16); }
+.filter-btn.active > i,
+.filter-btn:hover > i { color: #ff6170; }
+
+/* Training */
+.training-overview h2::before,
+.training-stats-section h2::before,
+.training-outcomes-section h2::before,
+.rewards-header h2::before { background: linear-gradient(90deg, var(--harmony-red), #ff6975); }
+.program-module-marker i,
+.training-stat-card > i,
+.training-outcome-card > span { border-color: rgba(227, 38, 54, 0.25); color: var(--harmony-red); }
+
+/* Contact */
+.hs-info-tagline,
+.hs-respond-badge .fa,
+.hs-form-group label span,
+.hs-form-note .fa { color: #ff5260; }
+.hs-info-icon { border-color: rgba(227, 38, 54, 0.25); background: rgba(227, 38, 54, 0.1); color: #ff5260; }
+.hs-form-group input:focus,
+.hs-form-group select:focus,
+.hs-form-group textarea:focus { border-color: var(--harmony-red); box-shadow: 0 0 0 3px rgba(227, 38, 54, 0.1); }
+.hs-submit { background: linear-gradient(135deg, #f02d3d, var(--harmony-red-dark)); box-shadow: 0 4px 18px rgba(227, 38, 54, 0.28); }
+
+/* Footer, preloader and fallback page */
+.footer-col-title::after { background: linear-gradient(90deg, var(--harmony-red), #ff6672); }
+.footer-links li a i,
+.footer-links li a:hover,
+.footer-bottom-links li a:hover { color: #ff5361; }
+.footer-cta-btn { border-color: rgba(227, 38, 54, 0.55); box-shadow: 7px 8px 0 var(--harmony-red), 0 18px 30px rgba(120, 9, 24, 0.25), inset 0 1px 0 rgba(255,255,255,.14); }
+.footer-cta-btn:hover { box-shadow: 11px 13px 0 var(--harmony-red), 0 24px 38px rgba(120, 9, 24, 0.3), inset 0 1px 0 rgba(255,255,255,.16); color: #ff6975; }
+.ring-circle { border-top-color: var(--harmony-red); border-right-color: rgba(227, 38, 54, 0.3); }
+.preloader-progress { background-image: linear-gradient(90deg, var(--harmony-red), #0788ff, var(--harmony-red)); }
+.not-found-page > span { color: var(--harmony-red); }
+.not-found-page a { background: linear-gradient(135deg, #f02d3d, var(--harmony-red-dark)); }

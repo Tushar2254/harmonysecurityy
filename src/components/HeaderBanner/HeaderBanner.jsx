@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import './HeaderBanner.css'
 
 function HeaderBanner({ backgroundImage, title, text }) {
@@ -18,7 +19,7 @@ function HeaderBanner({ backgroundImage, title, text }) {
           </h1>
           <p data-aos="fade-up" data-aos-duration="800" data-aos-delay="200">{text}</p>
           <div className="header-banner-breadcrumb">
-            <a href="/" style={{ color: 'inherit', textDecoration: 'none' }}>Home</a>
+            <Link to="/" style={{ color: 'inherit', textDecoration: 'none' }}>Home</Link>
             <i className="fas fa-chevron-right" style={{ fontSize: '0.65rem' }}></i>
             <span>{title}</span>
           </div>

@@ -25,9 +25,20 @@ function Footer() {
 
       {/* ── CTA STRIP ── */}
       <div className="footer-cta-strip">
+        <div className="footer-cta-particles" aria-hidden="true">
+          <span /><span /><span /><span /><span />
+        </div>
         <div className="footer-cta-inner">
+          <div className="footer-cta-visual" aria-hidden="true">
+            <span className="footer-security-ring footer-security-ring-outer" />
+            <span className="footer-security-ring footer-security-ring-inner" />
+            <div className="footer-security-shield">
+              <img src="/HGS_Harmony_Group_Services_Logo_Transparent_High_Resolution.png" alt="" />
+              <span className="footer-shield-scan" />
+            </div>
+          </div>
           <div className="footer-cta-text">
-            <h3>We're the Best Security Provider in Pune</h3>
+            <h3>We&apos;re the Best Security Provider in Pune</h3>
             <p>Trusted by 30+ clients. Available 24/7 for your protection.</p>
           </div>
           <Link to="/contact-us" className="footer-cta-btn">
@@ -43,27 +54,27 @@ function Footer() {
           {/* Brand */}
           <div className="footer-brand-col">
             <Link to="/" className="footer-logo-wrap">
-              <img src="/logo-removebg-preview.png" alt="Harmony Logo" />
-              <span className="footer-brand-name">Harmony<span>Group</span></span>
+              <img src="/HGS_Harmony_Group_Services_Logo_Transparent_High_Resolution.png" alt="Harmony Group Security Services logo" />
+              <span className="footer-brand-name">
+                Harmony <span>Group</span>
+                <span className="footer-brand-sub">Security Services</span>
+              </span>
             </Link>
             <p className="footer-about">
-              Harmony Security Services is a leading Security &amp; Investigation Solution Company in Pune.
+              Harmony Group Security Services is a leading Security &amp; Investigation Solution Company in Pune.
               A pioneer in Security Services &amp; Housekeeping Services since 2014.
             </p>
             <div className="footer-socials">
-              <span>Follow Us</span>
+              <span>Connect With Us</span>
               <div className="social-icons">
-                <a href="#" className="social-icon facebook" aria-label="Facebook">
-                  <i className="fab fa-facebook-f"></i>
+                <a href="tel:+917584526824" className="social-icon phone" aria-label="Call Harmony Security">
+                  <i className="fas fa-phone"></i>
                 </a>
-                <a href="#" className="social-icon twitter" aria-label="Twitter">
-                  <i className="fab fa-twitter"></i>
+                <a href="https://wa.me/917584526824" target="_blank" rel="noreferrer noopener" className="social-icon whatsapp" aria-label="Message Harmony Security on WhatsApp">
+                  <i className="fab fa-whatsapp"></i>
                 </a>
-                <a href="#" className="social-icon instagram" aria-label="Instagram">
-                  <i className="fab fa-instagram"></i>
-                </a>
-                <a href="#" className="social-icon linkedin" aria-label="LinkedIn">
-                  <i className="fab fa-linkedin-in"></i>
+                <a href="mailto:hello@harmonysecurity.com" className="social-icon email" aria-label="Email Harmony Security">
+                  <i className="fas fa-envelope"></i>
                 </a>
               </div>
             </div>
@@ -114,14 +125,14 @@ function Footer() {
                 <div className="contact-icon"><i className="fas fa-phone-alt"></i></div>
                 <div>
                   <strong>Phone</strong>
-                  <span>+91 75845 26824</span>
+                  <a href="tel:+917584526824">+91 75845 26824</a>
                 </div>
               </li>
               <li>
                 <div className="contact-icon"><i className="fas fa-envelope"></i></div>
                 <div>
                   <strong>Email</strong>
-                  <span>info@harmonygroup.in</span>
+                  <a href="mailto:hello@harmonysecurity.com">hello@harmonysecurity.com</a>
                 </div>
               </li>
               <li>
@@ -140,10 +151,8 @@ function Footer() {
       {/* ── BOTTOM BAR ── */}
       <div className="footer-bottom">
         <div className="footer-bottom-inner">
-          <p>Copyright &copy; {new Date().getFullYear()} <Link to="/">Harmony Security Services</Link>. All Rights Reserved.</p>
+          <p>Copyright &copy; {new Date().getFullYear()} <Link to="/">Harmony Group Security Services</Link>. All Rights Reserved.</p>
           <ul className="footer-bottom-links">
-            <li><a href="#">Privacy Policy</a></li>
-            <li><a href="#">Terms of Use</a></li>
             <li><Link to="/contact-us">Contact</Link></li>
           </ul>
         </div>

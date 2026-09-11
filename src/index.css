@@ -31,41 +31,25 @@ body {
   font-family: 'Roboto', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  /* background-image: url('/bg4.png');
-  background-size: cover;
-  background-attachment: fixed;
-  background-position: center;
-  background-repeat: no-repeat; */
+  background: #ffffff;
+  color: #172033;
 }
 
-/* Make all white-background sections transparent so bg.jpg shows through */
-[class*="container"],
-[class*="section"]:not(.why-choose-section),
-[class*="wrapper"],
-[class*="card"]:not([class*="why-card"]),
-[class*="strip"],
-[class*="panel"],
-[class*="box"],
-.contact,
-.company-info-contact,
-.containerContact,
-.containerFAQ,
-.accordion__wrapper,
-.about-strip,
-.services-strip,
-.hs-contact-section,
-.hs-faq-section,
-.hs-form-card {
-  background: transparent !important;
+html { scroll-behavior: smooth; }
+
+button,
+a,
+input,
+select,
+textarea { font: inherit; }
+
+:focus-visible {
+  outline: 3px solid rgba(0, 198, 255, 0.72);
+  outline-offset: 3px;
 }
 
-/* Lighten card-like elements slightly so text stays readable */
-.accordion,
-.hs-faq-item,
-.security-card,
-.service-card,
-.team-card,
-.gallery-card {
-  background: rgba(255, 255, 255, 0.75) !important;
-  backdrop-filter: blur(6px);
+img { max-width: 100%; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
 }
