@@ -4,7 +4,6 @@ import './Navbar.css'
 
 const navLinks = [
   { to: '/',          label: 'Home' },
-  { to: '/services',  label: 'Services' },
   { to: '/about-us',  label: 'About Us' },
   { to: '/careers',   label: 'Careers' },
   { to: '/gallery',   label: 'Gallery' },
@@ -13,6 +12,7 @@ const navLinks = [
 
 function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const [isServicesOpen, setIsServicesOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
   const location = useLocation()
 
@@ -29,6 +29,7 @@ function Navbar() {
 
   useEffect(() => {
     setIsMenuOpen(false)
+    setIsServicesOpen(false)
     setScrolled(window.scrollY > 50)
   }, [location])
 
@@ -79,7 +80,25 @@ function Navbar() {
 
           {/* RIGHT — Links */}
           <ul className="nav-links">
-            {navLinks.map(({ to, label }) => (
+            {navLinks.map(({ to, label }, index) => (
+              <>{index === 1 && (
+                <li className="nav-services-menu" key="services-menu">
+                  <button
+                    type="button"
+                    className={`nav-link-item nav-services-trigger ${location.pathname === '/services' || location.pathname === '/housekeeping-services' ? 'active' : ''}`}
+                    aria-expanded={isServicesOpen}
+                    aria-haspopup="true"
+                    onClick={() => setIsServicesOpen((open) => !open)}
+                  >
+                    Services <i className="fas fa-chevron-down" aria-hidden="true" />
+                    <span className="link-underline" />
+                  </button>
+                  <div className={`nav-services-dropdown ${isServicesOpen ? 'open' : ''}`}>
+                    <Link to="/services">Security Division</Link>
+                    <Link to="/housekeeping-services">Housekeeping Division</Link>
+                  </div>
+                </li>
+              )}
               <li key={to}>
                 <Link
                   to={to}
@@ -90,6 +109,7 @@ function Navbar() {
                   <span className="link-underline"></span>
                 </Link>
               </li>
+              </>
             ))}
             <li>
               <Link to="/contact-us" className={`nav-cta-btn ${location.pathname === '/contact-us' ? 'active' : ''}`}>Contact us</Link>
@@ -115,6 +135,13 @@ function Navbar() {
       <div id="mobile-navigation" className={`mobile-drawer ${isMenuOpen ? 'open' : ''}`} aria-hidden={!isMenuOpen}>
         <ul>
           {navLinks.map(({ to, label }, index) => (
+            <>{index === 1 && (
+              <li className="mobile-services-group" key="mobile-services" style={{ '--drawer-index': index }}>
+                <span>Services</span>
+                <Link to="/services" className={location.pathname === '/services' ? 'active' : ''} tabIndex={isMenuOpen ? 0 : -1}>Security Division</Link>
+                <Link to="/housekeeping-services" className={location.pathname === '/housekeeping-services' ? 'active' : ''} tabIndex={isMenuOpen ? 0 : -1}>Housekeeping Division</Link>
+              </li>
+            )}
             <li key={to} style={{ '--drawer-index': index }}>
               <Link
                 to={to}
@@ -125,6 +152,7 @@ function Navbar() {
                 {label}
               </Link>
             </li>
+            </>
           ))}
           <li style={{ '--drawer-index': navLinks.length }}>
             <Link

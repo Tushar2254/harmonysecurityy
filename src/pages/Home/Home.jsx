@@ -178,7 +178,7 @@ function Home() {
       <section className="h2-intro">
         <div className="h2-section-label" data-h2-reveal>Built for complete confidence</div>
         <div className="h2-intro-grid">
-          <h2 data-h2-reveal>Security is not a <span className="h2-uniform-word">uniform.</span><br /><span>It&apos;s a </span><strong className="h2-trust-word" aria-label="Trust."><span className="h2-trust-sizer" aria-hidden="true">Trust.</span><span className="h2-trust-flipper" aria-hidden="true"><span className="h2-trust-face h2-trust-face-front">Trust.</span><span className="h2-trust-face h2-trust-face-back">Trust.</span></span><span className="h2-trust-gloss" aria-hidden="true" /></strong></h2>
+          <h2 data-h2-reveal>Security is not a <span className="h2-uniform-word">uniform.</span><br /><span>It&apos;s a </span><strong className="h2-trust-word" aria-label="Trust."><span className="h2-trust-sizer" aria-hidden="true">Trust..</span><span className="h2-trust-flipper" aria-hidden="true"><span className="h2-trust-face h2-trust-face-front">Trust.</span><span className="h2-trust-face h2-trust-face-back">Trust.</span></span><span className="h2-trust-gloss" aria-hidden="true" /></strong></h2>
           <div data-h2-reveal>
             <p>Harmony Security Services provides reliable security and housekeeping solutions across Pune for commercial premises, malls, bungalows, housing societies and cooperative residential communities.</p>
             <p>Our relationship-led approach combines carefully selected personnel, continuous training, digital reporting and round-the-clock operational support.</p>

@@ -36,7 +36,7 @@ function Services() {
         <div className="services-hero-inner">
           <div className="services-hero-copy">
             <span className="services-hero-kicker"><i className="fas fa-shield-alt" /> Protection built around you</span>
-            <h1>More about <span>WHAT WE DO</span></h1>
+            <h1>Our <span>Security Services</span></h1>
             <p>At Harmony, Expert Security, Exceptional Cleaning.</p>
             <nav className="services-hero-breadcrumb" aria-label="Breadcrumb">
               <Link to="/"><i className="fas fa-home" aria-hidden="true" /> Home</Link>
@@ -77,7 +77,7 @@ function Services() {
         </div>
         <div className="services-grid-header" data-aos="fade-up">
           <span className="services-svc-tag">What We Offer</span>
-          <h2>Our Services</h2>
+          <h2>SECURITY Services</h2>
           <p>
            There are countless reasons to choose us.
           </p>

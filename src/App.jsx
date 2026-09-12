@@ -8,6 +8,7 @@ import WhatsAppButton from './components/WhatsAppButton/WhatsAppButton'
 import Home from './pages/Home/Home'
 import AboutUs from './pages/AboutUs/AboutUs'
 import Services from './pages/Services/Services'
+import Housekeeping from './pages/Housekeeping/Housekeeping'
 import ContactUs from './pages/ContactUs/ContactUs'
 import Gallery from './pages/Gallery/Gallery'
 import Training from './pages/Training/Training'
@@ -23,6 +24,7 @@ function ScrollToTop() {
       '/': 'Harmony Group Security Services | Pune',
       '/about-us': 'About Us | Harmony Security',
       '/services': 'Security Services | Harmony Security',
+      '/housekeeping-services': 'Housekeeping Services | Harmony Group Services',
       '/contact-us': 'Contact Us | Harmony Security',
       '/gallery': 'Gallery | Harmony Security',
       '/training': 'Security Training | Harmony Security',
@@ -74,6 +76,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/about-us" element={<AboutUs />} />
           <Route path="/services" element={<Services />} />
+          <Route path="/housekeeping-services" element={<Housekeeping />} />
           <Route path="/contact-us" element={<ContactUs />} />
           <Route path="/gallery"    element={<Gallery />} />
           <Route path="/training"   element={<Training />} />

@@ -172,7 +172,7 @@ body,
 
 /* Services */
 .services-hero { background: radial-gradient(circle at 14% 20%, rgba(103,228,255,.14), transparent 27rem), radial-gradient(circle at 88% 74%, rgba(227,38,54,.08), transparent 30rem), linear-gradient(135deg, #214f70, #173e5d 52%, #245777); color: #fff; }
-.services-hero-kicker { border-color: #cce5ef; background: rgba(255,255,255,.84); color: var(--light-blue); }
+.services-hero-kicker { border-color: rgba(227,38,54,.36); background: rgba(255,244,246,.9); color: var(--light-red); box-shadow: 0 8px 24px rgba(227,38,54,.12); }
 .services-hero-copy h1 { color: #fff; text-shadow: 0 18px 45px rgba(4, 24, 40, .24); }
 .services-hero-copy > p,
 .services-hero-breadcrumb { color: rgba(232, 244, 252, .72); }
