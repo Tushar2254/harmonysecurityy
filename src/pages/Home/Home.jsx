@@ -24,7 +24,7 @@ const capabilities = [
     number: '02',
     eyebrow: 'Always watching',
     title: 'Intelligent monitoring. Immediate awareness.',
-    text: 'Our 24-hour control room connects people, patrols and real-time site intelligence—helping teams identify risk early and respond with clarity.',
+    text: 'Our 24-hour control room connects people, patrols and real-time site intelligence helping teams identify risk early and respond with clarity.',
     image: '/Gallery/cyber.png',
     alt: 'Security operations team monitoring CCTV feeds',
     points: ['Remote site monitoring', 'Real-time reporting', 'Escalation-ready operations'],
@@ -66,7 +66,7 @@ const clientLogos = [
   { name: 'Vi', image: '/VI.webp' },
   { name: 'EFC', image: '/clients.png' },
   { name: 'Honda', image: '/Honda.svg' },
-  { name: 'Jaquar', image: '/jaquar.png' },
+  { name: 'Jaguar', image: '/jaquar.png' },
   { name: 'Land Rover', image: '/landrover.jpg' },
 ]
 
@@ -180,7 +180,7 @@ function Home() {
         <div className="h2-intro-grid">
           <h2 data-h2-reveal>Security is not a <span className="h2-uniform-word">uniform.</span><br /><span>It&apos;s a </span><strong className="h2-trust-word" aria-label="Trust."><span className="h2-trust-sizer" aria-hidden="true">Trust..</span><span className="h2-trust-flipper" aria-hidden="true"><span className="h2-trust-face h2-trust-face-front">Trust.</span><span className="h2-trust-face h2-trust-face-back">Trust.</span></span><span className="h2-trust-gloss" aria-hidden="true" /></strong></h2>
           <div data-h2-reveal>
-            <p>Harmony Security Services provides reliable security and housekeeping solutions across Pune for commercial premises, malls, bungalows, housing societies and cooperative residential communities.</p>
+            <p>Harmony Group Security Services provides reliable security and housekeeping solutions across Pune for commercial premises, malls, hospitals, bungalows, housing societies and cooperative residential communities.</p>
             <p>Our relationship-led approach combines carefully selected personnel, continuous training, digital reporting and round-the-clock operational support.</p>
             <Link to="/about-us">Discover who we are <i className="fas fa-arrow-right" /></Link>
           </div>
@@ -202,7 +202,7 @@ function Home() {
         <div className="h2-clients-heading" data-h2-reveal>
           <img className="h2-clients-logo" src="/hgs-logo-optimized.png" alt="Harmony Group Security Services" />
           <p className="h2-kicker">Trusted partnerships</p>
-          <h2>Protected by Harmony.</h2>
+          <h2>Protected by Harmony</h2>
         </div>
         <div className="h2-client-track"><div>{[...clientLogos, ...clientLogos].map((client, index) => <span key={`${client.name}-${index}`} aria-hidden={index >= clientLogos.length} style={{ '--client-index': index }}><img src={client.image} alt={index < clientLogos.length ? `${client.name} logo` : ''} loading="lazy" /></span>)}</div></div>
       </section>
@@ -259,12 +259,12 @@ function Home() {
 
       <section className="h2-final-cta" data-h2-reveal>
         <div className="h2-final-glow" aria-hidden="true" />
-        <p className="h2-kicker h2-kicker-red">Your security. Our responsibility.</p>
+        <p className="h2-kicker h2-kicker-red">Your security, Our responsibility.</p>
         <h2>Let&apos;s build a safer<br /><span>environment together.</span></h2>
         <p>Tell us what you need to protect. Our team will shape a professional security plan around your requirements.</p>
         <div className="h2-actions">
           <Link className="h2-button h2-button-primary" to="/contact-us">Request a consultation <i className="fas fa-arrow-right" /></Link>
-          <a className="h2-button h2-button-ghost" href="tel:+917584526824"><i className="fas fa-phone" /> Call our team</a>
+          <a className="h2-button h2-button-ghost" href="tel:+917768934871"><i className="fas fa-phone" /> Call our team</a>
         </div>
       </section>
     </main>

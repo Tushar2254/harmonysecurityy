@@ -1,6 +1,5 @@
 import { useEffect, useRef } from 'react'
 import { Link } from 'react-router-dom'
-import SecurityService from '../../components/SecurityService/SecurityService'
 import './AboutUs.css'
 
 const whyChooseUs = [
@@ -30,15 +29,15 @@ const potentialSections = [
 
 const operations = [
   { image: '/operations-recruitment.png', title: 'Recruitment', alt: 'Security supervisor evaluating a disciplined team of professional security officers', points: ['We meticulously select individuals who embody integrity, vigilance, and commitment.', 'We are shaping the future of your security with individuals who exceed expectations.', 'Every recruit is carefully chosen to safeguard your assets with a proactive mindset.'] },
-  { image: '/operations-training.png', title: 'Training', alt: 'Professional security officers performing defensive response drills with an instructor', points: ['Cutting-edge training turning every member into an expert in crisis management.', 'Security is only as strong as the training behind it — our programs ensure readiness.', 'Continuous training guarantees your team is always a step ahead of emerging threats.'] },
-  { image: '/operations-monitoring.png', title: 'Monitoring', alt: 'Security operations specialist monitoring live CCTV feeds in a modern control room', points: ['24/7 protection solutions giving you peace of mind at all times.', 'Real-time monitoring means real-time responses — never let vulnerability go unchecked.', 'Proactive monitoring prevents potential threats before they become problems.'] },
+  { image: '/Gallery/fireee.png', title: 'Training', alt: 'Professional security officers performing defensive response drills with an instructor', points: ['Cutting-edge training turning every member into an expert in crisis management.', 'Security is only as strong as the training behind it our programs ensure readiness.', 'Continuous training guarantees your team is always a step ahead of emerging threats.'] },
+  { image: '/Gallery/fire11.png', title: 'Monitoring', alt: 'Security operations specialist monitoring live CCTV feeds in a modern control room', points: ['24/7 protection solutions giving you peace of mind at all times.', 'Real-time monitoring means real-time responses never let vulnerability go unchecked.', 'Proactive monitoring prevents potential threats before they become problems.'] },
 ]
 
 const people = [
-  { image: '/Suraj.png', name: 'Mr. Suraj Shinde', position: 'CEO', description: 'Suraj Shinde has over 10 years of experience in the Security industry, leading innovative projects and teams.' },
-  { image: '/modi1.jpg', name: 'Mrs. Namrata Bakre', position: 'HR Manager', description: 'Mrs. Namrata leverages her expertise to develop effective strategies that drive growth and impactful solutions.' },
-  { image: '/modi2.jpg', name: 'Mr. Tukaram Ganjave', position: 'Admin Officer', description: 'Experienced admin officer ensuring smooth day-to-day operations across all sites.' },
-  { image: '/modi2.jpg', name: 'Mr. Tushar Jadhav', position: 'Admin Officer', description: 'Dedicated admin officer with a strong focus on client satisfaction and operational excellence.' },
+  { image: '/public/suraj_bg2.png', name: 'Mr. Suraj Shinde', position: 'CEO', description: 'Suraj Shinde has over 15 years of experience in the Security industry, leading innovative projects and teams.' },
+  { image: '/tukaram sir.png', name: 'Mr. Tukaram Ganjave', position: 'General Manager', description: 'Experienced admin officer ensuring smooth day-to-day operations across all sites.' },
+  { image: '/women.jpg', name: 'Mrs. Namrata Bakre', position: 'HR Manager', description: 'Mrs. Namrata leverages her expertise to develop effective strategies that drive growth and impactful solutions.' },
+  { image: '/men.png', name: 'Mr. Tushar Jadhav', position: 'Admin Officer', description: 'Dedicated admin officer with a strong focus on client satisfaction and operational excellence.' },
 ]
 
 const clients = [
@@ -52,7 +51,7 @@ const clients = [
   { name: 'Vi', imgSrc: '/VI.webp' },
   { name: 'EFC', imgSrc: '/clients.png' },
   { name: 'Honda', imgSrc: '/Honda.svg' },
-  { name: 'Jaquar', imgSrc: '/jaquar.png' },
+  { name: 'Jaguar', imgSrc: '/jaquar.png' },
   { name: 'Land Rover', imgSrc: '/landrover.jpg' },
 ]
 
@@ -160,20 +159,17 @@ function AboutUs() {
       <div className="about-storyline" aria-hidden="true"><span /></div>
       <section className="about-why about-chapter" data-about-scene aria-labelledby="about-why-title">
         <div className="about-chapter-number">01</div>
-        <div className="about-section-heading about-reveal"><p className="about-eyebrow">What&apos;s So Special?</p><h2 id="about-why-title">Why Choose Us?</h2><p>Trusted by hundreds of clients across Pune for over a decade of excellence.</p></div>
+        <div className="about-section-heading about-reveal"><p className="about-eyebrow">What&apos;s So Special?</p><h2 id="about-why-title">Why Choose Us?</h2><p>Trusted by Multiple clients across Pune for over a decade of excellence.</p></div>
         <div className="about-why-grid">
           {whyChooseUs.map((item, index) => <article className="about-why-card about-reveal" key={item.title} style={{ '--item-delay': `${(index % 4) * 70}ms` }}><span>{String(index + 1).padStart(2, '0')}</span><i className={item.icon} /><h3>{item.title}</h3><p>{item.desc}</p></article>)}
         </div>
         <p className="about-terms">*T&amp;C apply.</p>
       </section>
 
-      <section className="about-potential about-chapter" data-about-scene aria-labelledby="about-potential-title">
+      <section className="about-trust about-chapter" data-about-scene aria-labelledby="about-clients-title">
         <div className="about-chapter-number">02</div>
-        <div className="about-section-heading about-reveal"><p className="about-eyebrow">Our Strengths</p><h2 id="about-potential-title">Our Potential</h2></div>
-        <div className="about-potential-layout">
-          <div className="about-potential-visual about-reveal" data-about-parallax><img src="/Gallery/Gallery3.jpg" alt="Harmony security team on site" loading="lazy" /><span><strong>24/7</strong> Control Room &amp; Standby QRT</span></div>
-          <div className="about-potential-grid">{potentialSections.map((section, index) => <article className="about-potential-card about-reveal" key={section.title}><span>{String(index + 1).padStart(2, '0')}</span><h3>#{section.title}</h3><p>{section.text}</p></article>)}</div>
-        </div>
+        <div className="about-trust-copy about-reveal"><p className="about-eyebrow">Trusted By</p><h2 id="about-clients-title">Our Clients</h2><p>Protecting respected organizations with dependable people, responsive operations, and uncompromising standards.</p></div>
+        <div className="about-client-loop" aria-label="Our Clients"><div>{[...clients, ...clients].map((client, index) => <span key={`${client.name}-${index}`} aria-hidden={index >= clients.length}><img src={client.imgSrc} alt={index < clients.length ? `${client.name} logo` : ''} loading="lazy" /><small>{client.name}</small></span>)}</div></div>
       </section>
 
       <section className="about-operations about-chapter" data-about-scene aria-labelledby="about-operations-title">
@@ -184,13 +180,15 @@ function AboutUs() {
         </div>
       </section>
 
-      <section className="about-trust about-chapter" data-about-scene aria-labelledby="about-clients-title">
+      <section className="about-potential about-chapter" data-about-scene aria-labelledby="about-potential-title">
         <div className="about-chapter-number">04</div>
-        <div className="about-trust-copy about-reveal"><p className="about-eyebrow">Trusted By</p><h2 id="about-clients-title">Our Clients</h2><p>Protecting respected organizations with dependable people, responsive operations, and uncompromising standards.</p></div>
-        <div className="about-client-loop" aria-label="Our Clients"><div>{[...clients, ...clients].map((client, index) => <span key={`${client.name}-${index}`} aria-hidden={index >= clients.length}><img src={client.imgSrc} alt={index < clients.length ? `${client.name} logo` : ''} loading="lazy" /><small>{client.name}</small></span>)}</div></div>
+        <div className="about-section-heading about-reveal"><p className="about-eyebrow">Our Strengths</p><h2 id="about-potential-title">Our Potential</h2></div>
+        <div className="about-potential-layout">
+          <div className="about-potential-visual about-reveal" data-about-parallax><img src="/Gallery/Gallery3.jpg" alt="Harmony security team on site" loading="lazy" /><span><strong>24/7</strong> Control Room &amp; Standby QRT</span></div>
+          <div className="about-potential-grid">{potentialSections.map((section, index) => <article className="about-potential-card about-reveal" key={section.title}><span>{String(index + 1).padStart(2, '0')}</span><h3>#{section.title}</h3><p>{section.text}</p></article>)}</div>
+        </div>
       </section>
 
-      <div className="about-service-bridge" data-about-scene><SecurityService /></div>
       <section className="about-vision" data-about-scene aria-labelledby="about-vision-title">
         <div className="about-vision-image" data-about-parallax aria-hidden="true"><img src="/Gallery/vision.jpg" alt="" loading="lazy" /></div>
         <div className="about-vision-content about-reveal"><h2 id="about-vision-title">Our <span>Vision</span></h2><p>We strive to lead the security industry by providing innovative, reliable, and accessible solutions that keep you safe — anytime, anywhere.</p><p>Our mission is to offer peace of mind through advanced technology and expert protection for businesses and homes alike.</p></div>

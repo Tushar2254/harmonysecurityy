@@ -115,7 +115,7 @@ function Services() {
       <section className="services-cta-band">
         <div>
           <span className="services-svc-tag">Not sure what you need?</span>
-          <h2>Let us build the right security plan for you.</h2>
+          <h2>Let us build the right SECURITY plan for you.</h2>
           <p>Tell us about your property or event and our team will recommend a practical, cost-effective solution.</p>
         </div>
         <Link to="/contact-us" className="services-cta-button">

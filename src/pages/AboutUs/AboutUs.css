@@ -73,8 +73,8 @@
   --hero-exit-y: 0px;
   --hero-exit-opacity: 1;
   position: relative;
-  min-height: max(710px, calc(100svh - 108px));
-  margin-top: 108px;
+  min-height: max(710px, 100svh);
+  margin-top: 0;
   overflow: hidden;
   background:
     radial-gradient(circle at 16% 18%, rgba(0, 198, 255, .17), transparent 29rem),
@@ -120,9 +120,9 @@
   align-items: center;
   gap: 70px;
   width: min(1320px, calc(100% - 64px));
-  min-height: max(650px, calc(100svh - 120px));
+  min-height: max(710px, 100svh);
   margin: 0 auto;
-  padding: 20px 0 80px;
+  padding: 128px 0 80px;
 }
 
 .about-hero-copy {
@@ -284,13 +284,184 @@
 .about-team-card h3 { margin: 0 0 6px; color: var(--about-navy); font-size: .96rem; font-weight: 850; }
 .about-team-card > div:last-child span { color: var(--about-blue); font-size: .7rem; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; }
 
+/* Premium animated depth fields shared by the About sections */
+.about-chapter {
+  isolation: isolate;
+  perspective: 1600px;
+}
+
+.about-section-heading,
+.about-why-grid,
+.about-terms,
+.about-potential-layout,
+.about-operations-track,
+.about-trust-copy,
+.about-client-loop,
+.about-team-grid {
+  position: relative;
+  z-index: 2;
+}
+
+.about-chapter::after {
+  position: absolute;
+  z-index: 1;
+  top: 8%;
+  right: -11%;
+  width: clamp(390px, 46vw, 720px);
+  aspect-ratio: 1;
+  border: 1px solid rgba(5, 64, 108, .38);
+  border-radius: 50%;
+  background:
+    radial-gradient(circle at 28% 24%, rgba(255,255,255,.75) 0 2px, transparent 3px),
+    radial-gradient(circle at 72% 68%, rgba(227,38,54,.7) 0 3px, transparent 4px),
+    repeating-radial-gradient(circle, transparent 0 68px, rgba(5,82,137,.24) 69px 70px),
+    linear-gradient(rgba(5,72,121,.13) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(5,72,121,.13) 1px, transparent 1px),
+    radial-gradient(circle, rgba(5,76,128,.18), transparent 68%);
+  background-size: auto, auto, auto, 44px 44px, 44px 44px, auto;
+  box-shadow: 0 0 0 48px rgba(5,82,137,.065), 0 0 0 96px rgba(174,23,42,.04);
+  content: '';
+  opacity: .9;
+  transform: perspective(950px) rotateX(64deg) rotateZ(-12deg) translate3d(0, 0, -70px);
+  transform-style: preserve-3d;
+  animation: aboutDepthFieldFloat 19s ease-in-out infinite alternate;
+  pointer-events: none;
+}
+
+.about-why::before,
+.about-operations::before,
+.about-team::before {
+  position: absolute;
+  z-index: 0;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(5,72,121,.075) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(5,72,121,.075) 1px, transparent 1px),
+    radial-gradient(circle at 12% 22%, rgba(5,82,137,.17), transparent 25rem),
+    radial-gradient(circle at 88% 76%, rgba(174,23,42,.1), transparent 23rem);
+  background-size: 68px 68px, 68px 68px, auto, auto;
+  content: '';
+  mask-image: linear-gradient(to bottom, transparent, #000 16%, #000 84%, transparent);
+  animation: aboutSectionGridDrift 24s linear infinite;
+  pointer-events: none;
+}
+
+.about-potential::before,
+.about-trust::before {
+  opacity: .58;
+  animation: aboutSectionGridDrift 12s linear infinite;
+}
+
+.about-potential::after,
+.about-trust::after {
+  background:
+    radial-gradient(circle at 22% 20%, #dffaff 0 3px, transparent 4px),
+    radial-gradient(circle at 76% 68%, #ff5361 0 4px, transparent 5px),
+    repeating-radial-gradient(circle, transparent 0 62px, rgba(103,228,255,.25) 63px 65px),
+    linear-gradient(rgba(216,246,255,.13) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(216,246,255,.13) 1px, transparent 1px),
+    radial-gradient(circle, rgba(30,155,224,.22), transparent 68%);
+  background-size: auto, auto, auto, 40px 40px, 40px 40px, auto;
+  box-shadow: 0 0 0 48px rgba(103,228,255,.07), 0 0 0 96px rgba(227,38,54,.045), 0 0 70px rgba(0,198,255,.2);
+  opacity: 1;
+  animation-name: aboutFeatureDepthFloat;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+.about-potential::after {
+  top: 25%;
+  right: auto;
+  left: -14%;
+  border-color: rgba(5,82,137,.42);
+  background:
+    radial-gradient(circle at 22% 20%, #075f9f 0 3px, transparent 4px),
+    radial-gradient(circle at 76% 68%, #d7192d 0 4px, transparent 5px),
+    repeating-radial-gradient(circle, transparent 0 62px, rgba(5,82,137,.28) 63px 65px),
+    linear-gradient(rgba(5,72,121,.14) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(5,72,121,.14) 1px, transparent 1px),
+    radial-gradient(circle, rgba(8,127,216,.18), transparent 68%);
+  box-shadow: 0 0 0 48px rgba(5,82,137,.08), 0 0 0 96px rgba(174,23,42,.045), 0 0 70px rgba(8,127,216,.16);
+  animation-delay: -7s;
+  animation-duration: 13s;
+}
+
+.about-operations::after {
+  top: 37%;
+  right: -15%;
+  animation-delay: -11s;
+  animation-duration: 25s;
+}
+
+.about-trust::after {
+  top: 8%;
+  right: auto;
+  left: -12%;
+  border-color: rgba(5,82,137,.4);
+  animation-delay: -15s;
+  animation-duration: 15s;
+}
+
+.about-team::after {
+  top: 18%;
+  right: -13%;
+  border-color: rgba(174,23,42,.36);
+  animation-delay: -5s;
+  animation-duration: 24s;
+}
+
+.about-vision::before {
+  position: absolute;
+  z-index: 1;
+  top: 50%;
+  left: 50%;
+  width: min(86vw, 1050px);
+  aspect-ratio: 2 / 1;
+  border: 1px solid rgba(5,82,137,.38);
+  border-radius: 50%;
+  background: repeating-radial-gradient(ellipse, transparent 0 72px, rgba(5,82,137,.2) 73px 74px);
+  box-shadow: 0 0 70px rgba(5,82,137,.16), inset 0 0 70px rgba(5,82,137,.13);
+  content: '';
+  transform: translate(-50%, -50%) perspective(900px) rotateX(67deg) rotateZ(-8deg);
+  animation: aboutVisionOrbitFloat 18s ease-in-out infinite alternate;
+  pointer-events: none;
+}
+
+@keyframes aboutDepthFieldFloat {
+  0% { opacity: .72; transform: perspective(950px) rotateX(64deg) rotateZ(-12deg) translate3d(-22px, 18px, -70px) scale(.96); }
+  50% { opacity: .96; }
+  100% { opacity: .82; transform: perspective(950px) rotateX(58deg) rotateZ(-5deg) translate3d(32px, -24px, 10px) scale(1.06); }
+}
+
+@keyframes aboutFeatureDepthFloat {
+  0% { opacity: .72; transform: perspective(950px) rotateX(68deg) rotateZ(-18deg) translate3d(-48px, 35px, -110px) scale(.9); }
+  38% { opacity: 1; transform: perspective(950px) rotateX(57deg) rotateZ(-5deg) translate3d(24px, -28px, 20px) scale(1.08); }
+  70% { opacity: .84; transform: perspective(950px) rotateX(63deg) rotateZ(10deg) translate3d(54px, 22px, 65px) scale(1.15); }
+  100% { opacity: .96; transform: perspective(950px) rotateX(54deg) rotateZ(18deg) translate3d(-18px, -44px, -5px) scale(1.04); }
+}
+
+@keyframes aboutSectionGridDrift {
+  to { background-position: 68px 68px, -68px 68px, center, center; }
+}
+
+@keyframes aboutVisionOrbitFloat {
+  from { opacity: .42; transform: translate(-52%, -48%) perspective(900px) rotateX(67deg) rotateZ(-8deg) scale(.96); }
+  to { opacity: .78; transform: translate(-48%, -52%) perspective(900px) rotateX(61deg) rotateZ(5deg) scale(1.05); }
+}
+
+@keyframes aboutSectionAuraShift {
+  from { background-position: 0% 0%, 100% 100%, center; }
+  to { background-position: 24% 18%, 76% 72%, center; }
+}
+
 @keyframes aboutGridTravel { to { background-position: 52px 52px; } }
 @keyframes aboutOrbit { to { transform: rotate(360deg); } }
 @keyframes aboutOrbitReverse { to { transform: rotate(-360deg); } }
 @keyframes aboutParticle { 0%, 100% { opacity: .16; transform: translateY(0) scale(.8); } 50% { opacity: .72; transform: translateY(-23px) scale(1.3); } }
 @keyframes aboutSceneMain { 0%, 100% { transform: translateY(0) translateZ(62px) rotateY(-7deg) rotateX(2deg); } 50% { transform: translateY(-13px) translateZ(76px) rotateY(-4deg) rotateX(1deg); } }
 @keyframes aboutSceneBack { 0%, 100% { transform: translateY(0) translateZ(-80px) rotateY(-16deg) translateX(25px); } 50% { transform: translateY(14px) translateZ(-65px) rotateY(-12deg) translateX(12px); } }
-@keyframes aboutSealFloat { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-9px); } }
+@keyframes aboutSealFloat { 0%, 100% { transform: translate3d(0, 0, 120px); } 50% { transform: translate3d(0, -9px, 120px); } }
 @keyframes aboutScrollCue { 0%, 100% { opacity: .25; transform: scaleY(.55); transform-origin: top; } 50% { opacity: 1; transform: scaleY(1); } }
 @keyframes aboutClientLoop { to { transform: translateX(calc(-50% - 13px)); } }
 
@@ -305,8 +476,8 @@
   .about-progress,
   .about-storyline,
   .about-chapter-number { display: none; }
-  .about-hero { min-height: auto; margin-top: 88px; }
-  .about-hero-inner { grid-template-columns: 1fr; width: min(100% - 40px, 680px); min-height: 0; padding: 90px 0 130px; }
+  .about-hero { min-height: auto; margin-top: 0; }
+  .about-hero-inner { grid-template-columns: 1fr; width: min(100% - 40px, 680px); min-height: 0; padding: 125px 0 130px; }
   .about-hero-copy { text-align: center; }
   .about-hero-copy .about-eyebrow,
   .about-hero-breadcrumb { justify-content: center; }
@@ -338,7 +509,7 @@
 
 @media (max-width: 520px) {
   .about-hero-copy h1 { font-size: clamp(2.7rem, 14vw, 4rem); }
-  .about-hero-inner { padding-top: 72px; }
+  .about-hero-inner { padding-top: 112px; }
   .about-hero-scene { min-height: 370px; }
   .about-scene-card-main { top: 62px; left: 3%; width: 86%; height: 270px; border-radius: 86px 18px 18px; }
   .about-scene-card-back { width: 60%; height: 220px; }

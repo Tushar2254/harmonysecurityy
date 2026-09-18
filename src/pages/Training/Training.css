@@ -30,7 +30,7 @@
 .training-page-container {
   width: min(1280px, calc(100% - 48px));
   margin: 0 auto;
-  padding: 56px 0 90px;
+  padding: 145px 0 90px;
 }
 
 .training-tilt {
@@ -817,7 +817,7 @@
 @media (max-width: 760px) {
   .training-page-container {
     width: min(100% - 28px, 620px);
-    padding: 28px 0 64px;
+    padding: 112px 0 64px;
   }
 
   .training-hero {

@@ -1,10 +1,46 @@
 /* ── Main Contact Section ── */
 .hs-contact-section {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
   padding: 90px 24px 100px;
-  background: #ffffff;
+  background:
+    repeating-radial-gradient(circle at 88% 32%, transparent 0 74px, rgba(8,127,216,.055) 75px 76px),
+    radial-gradient(circle at 8% 14%, rgba(8,127,216,.18), transparent 27rem),
+    radial-gradient(circle at 94% 82%, rgba(227,38,54,.1), transparent 25rem),
+    linear-gradient(145deg, #d6e4f1 0%, #edf5fb 47%, #cbddea 100%);
+}
+
+.hs-contact-section::before {
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(16,47,74,.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(16,47,74,.045) 1px, transparent 1px);
+  background-size: 72px 72px;
+  mask-image: linear-gradient(120deg, #000, transparent 72%);
+  content: '';
+  pointer-events: none;
+}
+
+.hs-contact-section::after {
+  position: absolute;
+  z-index: -1;
+  top: 7%;
+  right: -180px;
+  width: 440px;
+  aspect-ratio: 1;
+  border: 1px solid rgba(8,127,216,.12);
+  border-radius: 50%;
+  box-shadow: 0 0 0 55px rgba(8,127,216,.025), 0 0 0 110px rgba(227,38,54,.018);
+  content: '';
+  pointer-events: none;
 }
 
 .hs-contact-inner {
+  position: relative;
+  z-index: 1;
   max-width: 1100px;
   margin: 0 auto;
   display: grid;
@@ -252,11 +288,31 @@
 
 /* ── FAQ Section ── */
 .hs-faq-section {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
   padding: 90px 24px 100px;
-  background: #f8fafc;
+  background:
+    radial-gradient(circle at 10% 88%, rgba(227,38,54,.09), transparent 25rem),
+    radial-gradient(circle at 88% 10%, rgba(8,127,216,.15), transparent 28rem),
+    linear-gradient(155deg, #cbddea, #edf5fb 52%, #d6e4f1);
+}
+
+.hs-faq-section::before {
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  background-image:
+    linear-gradient(120deg, transparent 48%, rgba(8,127,216,.055) 49%, transparent 50%),
+    linear-gradient(rgba(16,47,74,.035) 1px, transparent 1px);
+  background-size: 210px 210px, 100% 68px;
+  content: '';
+  pointer-events: none;
 }
 
 .hs-faq-header {
+  position: relative;
+  z-index: 1;
   text-align: center;
   margin-bottom: 52px;
 }
@@ -284,6 +340,8 @@
 }
 
 .hs-faq-list {
+  position: relative;
+  z-index: 1;
   max-width: 780px;
   margin: 0 auto;
   display: flex;

@@ -60,8 +60,9 @@ function ContactUs() {
     <>
       <HeaderBanner
         backgroundImage="/Handshake.jpg"
-        title="OUR AVAILABILITY"
-        text="With Harmony, Protect and Perfect Your Space"
+        title="CONTACT US"
+        heading={<>Take The Next Step &amp; <span>Reach Out Today</span></>}
+        text="You relax, We care!"
       />
 
       {/* ── MAIN CONTACT SECTION ── */}
@@ -79,11 +80,11 @@ function ContactUs() {
             </div>
 
             <div className="hs-info-items">
-              <a href="tel:+917584526824" className="hs-info-item">
+              <a href="tel:+917768934871" className="hs-info-item">
                 <div className="hs-info-icon"><i className="fa fa-phone" /></div>
                 <div>
                   <strong>Phone</strong>
-                  <span>+91 75845 26824</span>
+                  <span>+91 77689 34871</span>
                 </div>
               </a>
               <a href="tel:18001207066" className="hs-info-item">
@@ -108,7 +109,7 @@ function ContactUs() {
                 </div>
               </div>
               <div className="hs-info-item">
-                <div className="hs-info-icon"><i className="fa fa-clock-o" /></div>
+                <div className="hs-info-icon"><i className="fas fa-clock" /></div>
                 <div>
                   <strong>Office Hours</strong>
                   <span>Mon–Sat: 10am – 7pm</span>

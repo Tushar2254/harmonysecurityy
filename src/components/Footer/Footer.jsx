@@ -67,10 +67,10 @@ function Footer() {
             <div className="footer-socials">
               <span>Connect With Us</span>
               <div className="social-icons">
-                <a href="tel:+917584526824" className="social-icon phone" aria-label="Call Harmony Security">
+                <a href="tel:+917768934871" className="social-icon phone" aria-label="Call Harmony Security">
                   <i className="fas fa-phone"></i>
                 </a>
-                <a href="https://wa.me/917584526824" target="_blank" rel="noreferrer noopener" className="social-icon whatsapp" aria-label="Message Harmony Security on WhatsApp">
+                <a href="https://wa.me/917768934871" target="_blank" rel="noreferrer noopener" className="social-icon whatsapp" aria-label="Message Harmony Security on WhatsApp">
                   <i className="fab fa-whatsapp"></i>
                 </a>
                 <a href="mailto:hello@harmonysecurity.com" className="social-icon email" aria-label="Email Harmony Security">
@@ -125,7 +125,7 @@ function Footer() {
                 <div className="contact-icon"><i className="fas fa-phone-alt"></i></div>
                 <div>
                   <strong>Phone</strong>
-                  <a href="tel:+917584526824">+91 75845 26824</a>
+                  <a href="tel:+917768934871">+91 77689 34871</a>
                 </div>
               </li>
               <li>

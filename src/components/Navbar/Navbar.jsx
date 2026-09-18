@@ -15,6 +15,15 @@ function Navbar() {
   const [isServicesOpen, setIsServicesOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
   const location = useLocation()
+  const hasImmersiveHero = [
+    '/contact-us',
+    '/careers',
+    '/gallery',
+    '/training',
+    '/about-us',
+    '/services',
+    '/housekeeping-services',
+  ].includes(location.pathname)
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 50)
@@ -56,7 +65,7 @@ function Navbar() {
   return (
     <>
       <nav
-        className={`harmony-nav ${scrolled ? 'scrolled' : ''} ${location.pathname === '/' && !scrolled ? 'home-top' : ''}`}
+        className={`harmony-nav ${scrolled ? 'scrolled' : ''} ${location.pathname === '/' && !scrolled ? 'home-top' : ''} ${hasImmersiveHero && !scrolled ? 'hero-top' : ''}`}
         onPointerMove={handlePointerMove}
         aria-label="Main navigation"
       >
@@ -82,13 +91,23 @@ function Navbar() {
           <ul className="nav-links">
             {navLinks.map(({ to, label }, index) => (
               <>{index === 1 && (
-                <li className="nav-services-menu" key="services-menu">
+                <li
+                  className="nav-services-menu"
+                  key="services-menu"
+                  onPointerEnter={() => setIsServicesOpen(true)}
+                  onPointerLeave={() => setIsServicesOpen(false)}
+                  onFocus={() => setIsServicesOpen(true)}
+                  onBlur={(event) => {
+                    if (!event.currentTarget.contains(event.relatedTarget)) {
+                      setIsServicesOpen(false)
+                    }
+                  }}
+                >
                   <button
                     type="button"
                     className={`nav-link-item nav-services-trigger ${location.pathname === '/services' || location.pathname === '/housekeeping-services' ? 'active' : ''}`}
                     aria-expanded={isServicesOpen}
                     aria-haspopup="true"
-                    onClick={() => setIsServicesOpen((open) => !open)}
                   >
                     Services <i className="fas fa-chevron-down" aria-hidden="true" />
                     <span className="link-underline" />

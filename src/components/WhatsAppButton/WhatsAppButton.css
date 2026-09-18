@@ -4,8 +4,8 @@
   bottom: 28px;
   right: 28px;
   z-index: 9999;
-  width: 60px;
-  height: 60px;
+  width: 52px;
+  height: 52px;
   border-radius: 50%;
   background: #25d366;
   display: flex;
@@ -20,6 +20,79 @@
 .wa-float:hover {
   transform: scale(1.12);
   box-shadow: 0 8px 32px rgba(37,211,102,0.65);
+}
+
+/* Call button above WhatsApp */
+.call-float {
+  position: fixed;
+  right: 28px;
+  bottom: 94px;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: #0788ff;
+  color: #fff;
+  text-decoration: none;
+  box-shadow: 0 4px 20px rgba(7, 136, 255, .45);
+  transition: transform .25s cubic-bezier(.34, 1.56, .64, 1), box-shadow .25s ease;
+}
+
+.call-float:hover {
+  color: #fff;
+  transform: scale(1.12);
+  box-shadow: 0 8px 32px rgba(7, 136, 255, .65);
+}
+
+.call-pulse {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: rgba(7, 136, 255, .38);
+  animation: wa-pulse-ring 2s ease-out infinite;
+}
+
+.call-icon {
+  position: relative;
+  z-index: 1;
+  font-size: 22px;
+}
+
+.float-tooltip {
+  position: absolute;
+  right: 70px;
+  bottom: 50%;
+  padding: 7px 14px;
+  border-radius: 8px;
+  background: #0d1b3e;
+  color: #fff;
+  font-family: 'Roboto', sans-serif;
+  font-size: .78rem;
+  font-weight: 600;
+  white-space: nowrap;
+  pointer-events: none;
+  opacity: 0;
+  transform: translateY(50%) translateX(6px);
+  transition: opacity .2s ease, transform .2s ease;
+}
+
+.float-tooltip::after {
+  position: absolute;
+  top: 50%;
+  right: -6px;
+  border: 6px solid transparent;
+  border-right: none;
+  border-left-color: #0d1b3e;
+  content: '';
+  transform: translateY(-50%);
+}
+
+.call-float:hover .float-tooltip {
+  opacity: 1;
+  transform: translateY(50%) translateX(0);
 }
 
 /* Pulse animation */
@@ -39,8 +112,8 @@
 
 /* Icon */
 .wa-icon {
-  width: 34px;
-  height: 34px;
+  width: 30px;
+  height: 30px;
   position: relative;
   z-index: 1;
 }
@@ -83,7 +156,9 @@
 }
 
 @media (max-width: 480px) {
-  .wa-float { bottom: 18px; right: 18px; width: 52px; height: 52px; }
-  .wa-icon  { width: 28px; height: 28px; }
-  .wa-tooltip { display: none; }
+  .wa-float { bottom: 18px; right: 18px; width: 46px; height: 46px; }
+  .call-float { right: 18px; bottom: 76px; width: 46px; height: 46px; }
+  .call-icon { font-size: 19px; }
+  .wa-icon  { width: 25px; height: 25px; }
+  .wa-tooltip, .float-tooltip { display: none; }
 }

@@ -1,17 +1,19 @@
 .header-banner-gap {
-  margin-top: 80px;
+  margin-top: 0;
 }
 
 .header-banner {
   position: relative;
   width: 100%;
-  height: 340px;
+  min-height: 100vh;
+  min-height: 100svh;
   background-size: cover;
   background-position: center;
   display: flex;
   align-items: center;
   justify-content: center;
   overflow: hidden;
+  animation: headerBannerImageDrift 14s ease-in-out infinite alternate;
 }
 
 .header-banner::before {
@@ -27,11 +29,69 @@
   z-index: 1;
 }
 
+.header-banner::after {
+  position: absolute;
+  z-index: 1;
+  inset: -10%;
+  background-image:
+    repeating-radial-gradient(circle at 82% 48%, transparent 0 70px, rgba(103, 228, 255, .07) 71px 72px),
+    linear-gradient(rgba(103, 228, 255, .055) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(103, 228, 255, .055) 1px, transparent 1px),
+    radial-gradient(circle at 18% 25%, rgba(103, 228, 255, .2), transparent 28rem),
+    radial-gradient(circle at 86% 72%, rgba(227, 38, 54, .14), transparent 24rem),
+    radial-gradient(circle, rgba(227, 38, 54, .9) 0 3px, transparent 4px),
+    radial-gradient(circle, rgba(103, 228, 255, .9) 0 2px, transparent 3px);
+  background-position: center, 0 0, 0 0, center, center, 15% 24%, 84% 72%;
+  background-repeat: no-repeat, repeat, repeat, no-repeat, no-repeat, no-repeat, no-repeat;
+  background-size: auto, 64px 64px, 64px 64px, auto, auto, auto, auto;
+  content: '';
+  animation: headerBannerGraphicsDrift 11s ease-in-out infinite alternate;
+  pointer-events: none;
+}
+
+.header-banner-particles {
+  position: absolute;
+  z-index: 1;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.header-banner-particles span {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: #dffaff;
+  box-shadow: 0 0 5px #fff, 0 0 12px rgba(103,228,255,.85), 0 0 24px rgba(8,127,216,.5);
+  opacity: 0;
+  animation: headerBannerParticleFloat 9s ease-in-out infinite;
+}
+
+.header-banner-particles span:nth-child(1) { top: 72%; left: 8%; animation-delay: -1s; }
+.header-banner-particles span:nth-child(2) { top: 34%; left: 17%; width: 3px; height: 3px; animation-delay: -5s; animation-duration: 11s; }
+.header-banner-particles span:nth-child(3) { top: 82%; left: 28%; animation-delay: -7s; animation-duration: 10s; }
+.header-banner-particles span:nth-child(4) { top: 23%; left: 39%; width: 3px; height: 3px; animation-delay: -3s; }
+.header-banner-particles span:nth-child(5) { top: 67%; left: 48%; animation-delay: -8s; animation-duration: 12s; }
+.header-banner-particles span:nth-child(6) { top: 30%; left: 59%; width: 5px; height: 5px; animation-delay: -6s; }
+.header-banner-particles span:nth-child(7) { top: 76%; left: 68%; animation-delay: -2s; animation-duration: 11s; }
+.header-banner-particles span:nth-child(8) { top: 39%; left: 78%; width: 3px; height: 3px; animation-delay: -9s; }
+.header-banner-particles span:nth-child(9) { top: 69%; left: 88%; background: #ff7a87; box-shadow: 0 0 5px #fff, 0 0 13px rgba(227,38,54,.8); animation-delay: -4s; animation-duration: 12s; }
+.header-banner-particles span:nth-child(10) { top: 20%; left: 94%; animation-delay: -7s; animation-duration: 10s; }
+
+@keyframes headerBannerParticleFloat {
+  0%, 100% { opacity: 0; transform: translate3d(-8px, 16px, 0) scale(.7); }
+  20% { opacity: .42; }
+  52% { opacity: .9; transform: translate3d(9px, -18px, 0) scale(1.15); }
+  82% { opacity: .3; }
+}
+
 .header-banner-content {
   position: relative;
   z-index: 2;
   text-align: center;
   padding: 20px;
+  transform: translateY(42px);
 }
 
 .header-banner-content h1 {
@@ -49,6 +109,72 @@
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+}
+
+.header-banner-content .header-banner-primary {
+  max-width: 980px;
+  margin-right: auto;
+  margin-left: auto;
+  font-family: 'Montserrat', sans-serif;
+  font-size: clamp(2.3rem, 5.2vw, 4.8rem);
+  font-weight: 800;
+  line-height: 1.02;
+  letter-spacing: -0.045em;
+  text-wrap: balance;
+}
+
+.header-banner-content .header-banner-primary span {
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+  line-height: inherit;
+  letter-spacing: inherit;
+}
+
+.header-banner-content .header-banner-primary + p {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  background: linear-gradient(110deg, #f4fbff 0%, #f4fbff 35%, #67e4ff 46%, #fff 52%, #ff7a87 60%, #f4fbff 72%, #f4fbff 100%);
+  background-size: 260% 100%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+  font-size: clamp(1.35rem, 2.3vw, 2rem);
+  font-weight: 800;
+  letter-spacing: .08em;
+  text-shadow: 0 3px 14px rgba(0,0,0,.55), 0 0 20px rgba(103,228,255,.18);
+  animation: headerBannerTagGlow 8s cubic-bezier(.45, 0, .2, 1) infinite;
+}
+
+.header-banner-content .header-banner-primary + p::before,
+.header-banner-content .header-banner-primary + p::after {
+  width: clamp(34px, 5vw, 74px);
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #67e4ff);
+  content: '';
+}
+
+.header-banner-content .header-banner-primary + p::after {
+  background: linear-gradient(90deg, #e32636, transparent);
+}
+
+@keyframes headerBannerImageDrift {
+  from { background-position: 48% 50%; }
+  to { background-position: 54% 46%; }
+}
+
+@keyframes headerBannerGraphicsDrift {
+  from { opacity: .72; transform: translate3d(-1.5%, -1%, 0) rotate(-.5deg) scale(1); }
+  to { opacity: 1; transform: translate3d(1.5%, 1%, 0) rotate(.5deg) scale(1.035); }
+}
+
+@keyframes headerBannerTagGlow {
+  0%, 15% { opacity: .9; background-position: 120% 50%; transform: translateY(0); }
+  50% { opacity: 1; transform: translateY(-1px); }
+  85%, 100% { opacity: .92; background-position: -120% 50%; transform: translateY(0); }
 }
 
 .header-banner-content p {
@@ -74,7 +200,18 @@
 }
 
 @media (max-width: 768px) {
-  .header-banner-gap { margin-top: 65px; }
-  .header-banner { height: 240px; }
+  .header-banner-gap { margin-top: 0; }
+  .header-banner { min-height: 100vh; min-height: 100svh; }
   .header-banner-content h1 { font-size: 1.5rem; }
+  .header-banner-content .header-banner-primary { font-size: clamp(2rem, 9vw, 3rem); }
+  .header-banner-content { transform: translateY(30px); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .header-banner,
+  .header-banner::after,
+  .header-banner-particles span,
+  .header-banner-content .header-banner-primary + p { animation: none; }
+
+  .header-banner-particles span { opacity: .35; }
 }

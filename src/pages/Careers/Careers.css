@@ -67,6 +67,16 @@
   margin-bottom: 20px;
 }
 
+.careers-info .careers-tag {
+  border-color: #e32636;
+  background: linear-gradient(135deg, #f02d3d, #c91427);
+  color: #fff;
+  box-shadow: 0 8px 22px rgba(201, 20, 39, .3);
+  text-shadow: 0 1px 2px rgba(70, 0, 10, .28);
+}
+
+.careers-info .careers-tag i { color: #fff; }
+
 .careers-info h2 {
   font-family: 'Jost', sans-serif;
   font-size: clamp(2.45rem, 4.5vw, 4rem);
@@ -116,13 +126,22 @@
   color: #68ddff;
   background: rgba(0,198,255,0.1);
   flex-shrink: 0;
+  transition: color 0.25s ease, background 0.25s ease;
+}
+
+.careers-perk:hover .fa {
+  color: #e32636;
+  background: rgba(227, 38, 54, .1);
 }
 
 .careers-perk span {
   font-size: 0.85rem;
   color: rgba(240,246,255,0.86);
   font-weight: 500;
+  transition: color 0.25s ease;
 }
+
+.careers-perk:hover span { color: #168cff; }
 
 /* ── Right Form Card ── */
 .careers-form-card {
@@ -326,10 +345,12 @@
 
 .careers-section::before {
   z-index: -2;
+  inset: 0 0 auto;
+  height: 760px;
   background:
-    linear-gradient(180deg, rgba(3,11,27,0.28) 0%, rgba(4,16,34,0.74) 43%, #041022 75%),
+    linear-gradient(180deg, rgba(3,11,27,0.28) 0%, rgba(4,16,34,0.58) 62%, #041022 100%),
     linear-gradient(90deg, rgba(3,11,27,0.92), rgba(5,21,45,0.42) 62%, rgba(3,11,27,0.72)),
-    url('/Watchman/watchman_cover.jpeg') center -200px / 100% auto no-repeat;
+    url('/Gallery/Training1.jpeg') center 35% / cover no-repeat;
 }
 
 .careers-section::after {
@@ -362,15 +383,7 @@
 }
 
 .careers-combined-hero::before {
-  content: '';
-  position: absolute;
-  left: 0;
-  bottom: 76px;
-  width: min(760px, 62vw);
-  height: 1px;
-  background: linear-gradient(90deg, #00c6ff, rgba(0,198,255,0));
-  transform-origin: left;
-  animation: careersLineGrow 1.2s 0.45s cubic-bezier(0.16,1,0.3,1) both;
+  display: none;
 }
 
 @keyframes careersLineGrow {
@@ -573,7 +586,34 @@
   perspective: 1600px;
 }
 
-.careers-info { top: 112px; }
+.careers-info {
+  top: 112px;
+  isolation: isolate;
+}
+
+.careers-info::before {
+  position: absolute;
+  z-index: -1;
+  top: 12px;
+  right: -55px;
+  bottom: -70px;
+  left: -110px;
+  background:
+    linear-gradient(90deg, rgba(4,16,34,.46), rgba(4,16,34,.7) 72%, rgba(4,16,34,.96)),
+    url('/Watchman/watchman_coverr.jpeg') 42% center / cover no-repeat;
+  content: '';
+  opacity: .42;
+  mask-image: radial-gradient(ellipse at 38% 48%, #000 0 48%, rgba(0,0,0,.78) 68%, transparent 100%);
+  pointer-events: none;
+}
+
+.careers-info h2,
+.careers-sub,
+.careers-tag,
+.careers-perks {
+  position: relative;
+  z-index: 1;
+}
 
 .careers-form-card {
   transform: rotateX(var(--career-card-rx)) rotateY(var(--career-card-ry)) translateZ(0);
@@ -594,13 +634,14 @@
 
 @media (max-width: 760px) {
   .careers-section { padding: 0 18px 90px; }
-  .careers-section::before { background-size: auto 680px; }
+  .careers-section::before { height: 680px; background-size: auto 680px; }
   .careers-combined-hero { min-height: 610px; padding: 150px 0 105px; align-items: flex-start; }
   .careers-hero-copy { width: 100%; }
   .careers-hero-copy h1 { font-size: clamp(2.75rem, 13vw, 4.6rem); }
   .careers-3d-scene { top: 330px; right: -95px; width: 300px; opacity: 0.36; }
   .careers-combined-hero::before { bottom: 76px; width: 86%; }
   .careers-inner { margin-top: 0; }
+  .careers-info::before { inset: 10px -18px -45px; }
   .careers-form-card { transform: none; }
 }
 

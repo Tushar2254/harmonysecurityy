@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom'
 import './HeaderBanner.css'
 
-function HeaderBanner({ backgroundImage, title, text }) {
+function HeaderBanner({ backgroundImage, title, text, heading }) {
   return (
     <>
       <div className="header-banner-gap"></div>
@@ -9,13 +9,17 @@ function HeaderBanner({ backgroundImage, title, text }) {
         className="header-banner"
         style={{ backgroundImage: `url(${backgroundImage})` }}
       >
+        <div className="header-banner-particles" aria-hidden="true">
+          {Array.from({ length: 10 }, (_, index) => <span key={index} />)}
+        </div>
         <div className="header-banner-content">
           <h1
+            className={heading ? 'header-banner-primary' : undefined}
             data-aos="fade-down"
             data-aos-duration="800"
             data-aos-offset="0"
           >
-            More about <span>{title}</span>
+            {heading || <>More about <span>{title}</span></>}
           </h1>
           <p data-aos="fade-up" data-aos-duration="800" data-aos-delay="200">{text}</p>
           <div className="header-banner-breadcrumb">

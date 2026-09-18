@@ -325,12 +325,15 @@
 .social-icon.email     { background: #334155; }
 
 .footer-contact-list a {
-  color: inherit;
+  color: rgba(218, 233, 243, .72);
+  font-size: 0.88rem;
   text-decoration: none;
   transition: color 0.2s ease;
+  overflow-wrap: anywhere;
 }
 
-.footer-contact-list a:hover { color: #68ddff; }
+.footer-contact-list a:hover,
+.footer-contact-list li:hover a { color: #68ddff; }
 
 .social-icon i { position: relative; z-index: 1; }
 
